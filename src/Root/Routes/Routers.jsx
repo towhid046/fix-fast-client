@@ -4,6 +4,8 @@ import NotFoundPage from "./../../pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./../../pages/RegisterPage/RegisterPage";
 import HomePage from "../../pages/HomePage/HomePage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
+import AllServicesPage from "../../pages/AllServicesPage/AllServicesPage";
+import AddServicePage from "../../pages/AddServicePage/AddServicePage";
 
 const routers = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const routers = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage/>,
+      },
+      {
+        path: "all-services",
+        element: <AllServicesPage/>,
+      },
+      {
+        path: "add-service",
+        element: <AddServicePage/>,
       },
     ],
   },
