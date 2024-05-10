@@ -28,12 +28,13 @@ const RegisterPage = () => {
     const photoUrl = form.imgurl.value;
     setPasswordError(null);
 
-    if (!/[a-z]/.test(password)) {
-      setPasswordError("Password must be a lowercase latter");
-      return;
-    }
     if (password.length < 6) {
       setPasswordError("Password must be 6 character");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      setPasswordError("Password must be a lowercase latter");
       return;
     }
 
@@ -84,7 +85,7 @@ const RegisterPage = () => {
   return (
     <div>
       {/* <MyHelmate title="Registration"/> */}
-      <div className="hero md:min-h-screen container-fluid pt-12 mb-16">
+      <div className=" md:min-h-screen container-fluid pt-12 mb-16">
         <div className="w-full px-4">
           <div
             className={`max-w-xl bg-base-100 mx-auto md:p-12 py-8 px-6 border`}
