@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import ManageService from "./../../components/unique/ManageService/ManageService";
+import swal from "sweetalert";
+import { toast } from 'react-toastify';
 
 const ManageServicesPage = () => {
   const { user } = useAuth();
@@ -30,14 +32,28 @@ const ManageServicesPage = () => {
     },
   });
 
-  const handleDeleteService = async (id) => {
-    try {
-      await axios.delete(
-        `${import.meta.env.VITE_API_URL}/delete-service/${id}`
-      );
-    } catch (error) {
-        console.log(error)
-    }
+  const handleDeleteService = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this service!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        try {
+          await axios.delete(
+            `${import.meta.env.VITE_API_URL}/delete-service/${id}`
+          );
+          toast.success('Delete Success', {
+            autoClose: 2000
+          })
+          refetch();
+        } catch (error) {
+         swal('Error', 'Something went wrong, Please try again', 'error')
+        }
+      }
+    });
   };
 
   if (isError) {
