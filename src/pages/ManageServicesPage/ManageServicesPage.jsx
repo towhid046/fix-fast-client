@@ -6,7 +6,8 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import ManageService from "./../../components/unique/ManageService/ManageService";
 import swal from "sweetalert";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const ManageServicesPage = () => {
   const { user } = useAuth();
@@ -45,12 +46,12 @@ const ManageServicesPage = () => {
           await axios.delete(
             `${import.meta.env.VITE_API_URL}/delete-service/${id}`
           );
-          toast.success('Delete Success', {
-            autoClose: 2000
-          })
+          toast.success("Delete Success", {
+            autoClose: 2000,
+          });
           refetch();
         } catch (error) {
-         swal('Error', 'Something went wrong, Please try again', 'error')
+          swal("Error", "Something went wrong, Please try again", "error");
         }
       }
     });
@@ -77,22 +78,39 @@ const ManageServicesPage = () => {
       {services.length ? (
         <>
           <SectionHeader />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((service) => (
-              <ManageService
-                key={service._id}
-                service={service}
-                handleDeleteService={handleDeleteService}
-              />
-            ))}
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead className="bg-black text-white ">
+                <tr className="text-center">
+                  <th>SN.</th>
+                  <th>Service Name</th>
+                  <th>Price</th>
+                  <th>Location</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {services.map((service, index) => (
+                  <ManageService
+                    key={service._id}
+                    service={service}
+                    index={index + 1}
+                    handleDeleteService={handleDeleteService}
+                  />
+                ))}
+              </tbody>
+            </table>
           </div>
         </>
       ) : (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex flex-col gap-5 justify-center items-center min-h-[80vh]">
           <h2 className="text-gray-300 font-bold text-center text-3xl">
             Your don`t have added any service yet
           </h2>
+          <Link to="/add-service">
+            <button className="btn btn-info btn-sm">Add Service</button>
+          </Link>
         </div>
       )}
     </section>

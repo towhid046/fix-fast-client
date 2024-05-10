@@ -11,6 +11,7 @@ import ServiceDetails from "../../pages/ServiceDetails/ServiceDetails";
 import BookNowPage from "../../pages/BookNowPage/BookNowPage";
 import ManageServicesPage from "../../pages/ManageServicesPage/ManageServicesPage";
 import UpdateServicePage from "../../pages/UpdateServicePage/UpdateServicePage";
+import BookedServicesPage from "../../pages/BookedServicesPage/BookedServicesPage";
 
 const routers = createBrowserRouter([
   {
@@ -77,6 +78,14 @@ const routers = createBrowserRouter([
         element: (
           <PrivateRouters>
             <UpdateServicePage />
+          </PrivateRouters>
+        ),
+      },
+      {
+        path: "/booked-services",
+        element: (
+          <PrivateRouters>
+            <BookedServicesPage />
           </PrivateRouters>
         ),
       },
