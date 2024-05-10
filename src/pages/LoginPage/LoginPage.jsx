@@ -1,62 +1,55 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import googleLogo from "../../../src/assets/logos/google-logo.png";
+import googleLogo from "../../../src/assets/icons/google-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 import { toast } from "react-toastify";
 // import MyHelmate from "./../../components/Shared/MyHelmate/MyHelmate";
 import { UserContext } from "../../providers/AuthProvider/AuthProvider";
+import { scrollToTop } from "../../utilities/scrollToTop";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, setLoading } = useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   //   const location = useLocation();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     scrollToTop();
   }, []);
 
-  const handelLoginForm = (e) => {
+  const handelLoginForm = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    loginUser(email, password)
-      .then((res) => {
-        swal("Login Success", "You have login successfully", "success");
-        e.target.reset();
-        // navigate(location?.state ? location.state : "/");
-      })
-      .catch((err) => {
-        toast.error(
-          "Something went wrong! Your email or password may not match",
-          {
-            autoClose: 5000,
-            position: "top-center",
-            theme: "dark",
-          }
-        );
-        setLoading(false);
+    try {
+      await loginUser(email, password);
+      swal("Login Success", "You have login successfully", "success");
+      e.target.reset();
+      navigate("/");
+    } catch (err) {
+      toast.error(`Something went wrong! ${err?.message} `, {
+        position: "top-center",
       });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handelLogInWithGoogle = async () => {
+    try {
+      await logInWithGoogle();
+      swal("Login Success", "You have login successfully", "success");
+      // navigate(location?.state ? location.state : "/");
+    } catch (error) {
+      swal("ERROR", `${error?.message}`, "error");
+    }
   };
 
   const handelShowPassword = () => {
     setIsShowPassword(!isShowPassword);
-  };
-
-  const handelLogInWithGoogle = () => {
-    logInWithGoogle()
-      .then((res) => {
-        swal("Login Success", "You have login successfully", "success");
-
-        // navigate(location?.state ? location.state : "/");
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   };
 
   return (
@@ -74,6 +67,7 @@ const Login = () => {
             </h1>
             <hr />
             <form onSubmit={handelLoginForm} className="mt-5 text-black">
+
               <div>
                 <label className="label">
                   <strong className="label-text">Email address</strong>
@@ -82,10 +76,11 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="focus:  input w-full     bg-[#f3f3f3]"
+                  className="focus:  input w-full   bg-[#f3f3f3]"
                   required
                 />
               </div>
+
               <div className="relative">
                 <label className="label">
                   <strong className="label-text">Password</strong>
@@ -94,7 +89,7 @@ const Login = () => {
                   type={isShowPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="focus:  w-full input     bg-[#f3f3f3]"
+                  className="focus:  w-full input  bg-[#f3f3f3]"
                   required
                 />
 
@@ -117,12 +112,15 @@ const Login = () => {
                   )}
                 </div>
               </div>
+
               <div className="form-control my-5">
                 <button className="btn w-full   font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
                   Log in
                 </button>
               </div>
+
             </form>
+
             <div>
               <div className="text-center mb-4">
                 <h2 className="text-2xl">Or</h2>
@@ -139,12 +137,12 @@ const Login = () => {
               </div>
             </div>
             <p className="text-center mt-5">
-              Don't have an account?{" "}
+              Don`t have an account?{" "}
               <Link
                 to={"/register"}
                 className=" cursor-pointer text-[#AB7442] font-semibold"
               >
-                Regester
+                Register
               </Link>
             </p>
           </div>

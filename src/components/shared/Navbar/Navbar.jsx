@@ -1,6 +1,57 @@
-import { Link } from "react-router-dom";
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../../../assets/logo.png";
+import useAuth from "../../../hooks/useAuth";
+import swal  from 'sweetalert';
 const Navbar = () => {
+  const { user, logOutUser } = useAuth();
+  const navigate = useNavigate()
+
+  const links = (
+    <>
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/all-services"}>Services</NavLink>
+      </li>
+      {user && (
+        <li>
+          <details>
+            <summary>Dashboard</summary>
+            <ul className="p-2">
+              <li>
+                <NavLink to={"/add-service"}>Add Service</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/manage-service"}>Manage Service</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/booked-services"}>Booked Services</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/service-to-do"}>Service To Do</NavLink>
+              </li>
+            </ul>
+          </details>
+        </li>
+      )}
+    </>
+  );
+
+  const handleLogOutUser = async () => {
+    try {
+      await logOutUser();
+      swal(
+        "Log Out Success!",
+        "You have successfully Log out",
+        "success"
+      );
+      navigate('/')
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <nav className="shadow-sm bg-base-100 sticky z-50 top-0">
       <div className="navbar  container mx-auto px-2">
@@ -24,54 +75,53 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu gap-3 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {links}
             </ul>
           </div>
-          <Link to={'/'} className="btn btn-ghost text-2xl font-bold">FixFast</Link>
+          <Link to={"/"}>
+            <img className="w-24" src={logo} alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu gap-3 menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn btn-success">Login</Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img title={user?.displayName} src={user?.photoURL} />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li onClick={handleLogOutUser}>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-success">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>

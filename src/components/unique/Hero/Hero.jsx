@@ -46,7 +46,7 @@ const Hero = () => {
       <Swiper
         navigation={true}
         autoplay={{
-          delay: 2500,
+          delay: 25000,
           disableOnInteraction: false,
         }}
         modules={[Navigation, Autoplay]}

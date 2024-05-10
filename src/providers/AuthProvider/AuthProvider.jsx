@@ -35,19 +35,15 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const updateUserProfile = (userName, imgUrl) => {
+  const updateUserProfile = (displayName, photoURL) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: userName,
-      photoURL: imgUrl,
-    });
+    return updateProfile(auth.currentUser, { displayName, photoURL });
   };
 
   // Truck the current user status:
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
       setLoading(false);
     });
     return () => unSubscribe();
