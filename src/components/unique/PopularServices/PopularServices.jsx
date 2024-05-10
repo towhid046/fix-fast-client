@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import SectionHeader from "./../../shared/SectionHeader/SectionHeader";
 import ServiceCard from "../ServiceCard/ServiceCard";
+import { Link } from "react-router-dom";
 
 const PopularServices = () => {
   const {
@@ -41,6 +42,11 @@ const PopularServices = () => {
           <ServiceCard key={service._id} service={service} />
         ))}
       </div>
+      <Link to={"/all-services"} className="flex justify-center">
+        <button className="btn rounded-3xl mt-6 btn-outline btn-primary btn-wide">
+          View All
+        </button>
+      </Link>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const ServiceCard = ({ service }) => {
   const {
@@ -23,12 +23,14 @@ const ServiceCard = ({ service }) => {
       </figure>
       <div className="lg:border-r space-y-3 lg:max-w-lg lg:pr-5 pb-5">
         <h2 className="font-bold text-3xl">{service_name}</h2>
-        <strong>Price: {price}</strong>
+        <p>
+          <strong>Price: {price}</strong>
+        </p>
         <strong>Service Area: {service_area}</strong>
         <div className="relative">
           <p>
             <em>Description: </em>
-            {description.split(" ").slice(0, 30).join(" ")}
+            {description.split(" ").slice(0, 25).join(" ")}
             <span className="text-gray-400"> . . .</span>
           </p>
           <Link to={`services/${_id}`} className="absolute right-0">
@@ -37,11 +39,13 @@ const ServiceCard = ({ service }) => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center space-y-3 flex-auto">
+        <h2 className="text-xl text-gray-400 font-semibold mb-5">
+          Service Provider Info
+        </h2>
         <figure>
           <img className="rounded-full w-24 h-24" src={photo} alt="" />
         </figure>
-        <h2 className="text-xl font-bold">{name}</h2>
-        <p>Email: {email}</p>
+        <h2 className="text-xl font-bold">Name: {name}</h2>
       </div>
     </div>
   );
