@@ -3,7 +3,13 @@ import PopularServices from "./../../components/unique/PopularServices/PopularSe
 import Reviews from "./../../components/unique/Reviews/Reviews";
 import Faq from "./../../components/unique/Faq/Faq";
 import MobileApp from "./../../components/unique/MobileApp/MobileApp";
+import { scrollToTop } from "../../utilities/scrollToTop";
+import { useEffect } from "react";
+
 const HomePage = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <section>
       <Hero />

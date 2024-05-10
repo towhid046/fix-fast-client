@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const ServiceCard = ({ service }) => {
+const SingleService = ({ service }) => {
   const {
     _id,
     image_url,
@@ -46,13 +46,14 @@ const ServiceCard = ({ service }) => {
           <img className="rounded-full w-24 h-24" src={photo} alt="" />
         </figure>
         <h2 className="text-xl font-bold">Name: {name}</h2>
+        <p></p>
       </div>
     </div>
   );
 };
 
-ServiceCard.propTypes = {
+SingleService.propTypes = {
   service: PropTypes.object.isRequired,
 };
 
-export default ServiceCard;
+export default SingleService;
