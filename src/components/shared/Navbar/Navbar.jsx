@@ -23,7 +23,7 @@ const Navbar = () => {
                 <NavLink to={"/add-service"}>Add Service</NavLink>
               </li>
               <li>
-                <NavLink to={"/manage-service"}>Manage Service</NavLink>
+                <NavLink to={"/manage-services"}>Manage Service</NavLink>
               </li>
               <li>
                 <NavLink to={"/booked-services"}>Booked Services</NavLink>
