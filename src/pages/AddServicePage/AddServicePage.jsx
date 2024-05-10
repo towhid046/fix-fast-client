@@ -5,6 +5,7 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 // import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
+import axios from "axios";
 
 const AddService = () => {
   useEffect(() => {
@@ -20,22 +21,33 @@ const AddService = () => {
     { id: 4, title: "Service_Area" },
   ];
 
-  const handleAddService = (e) => {
+  const handleAddService = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const service = {};
+    const serviceInfo = {};
     serviceData.forEach((input) => {
-      service[input.title.toLowerCase()] =
+      serviceInfo[input.title.toLowerCase()] =
         form[input.title.toLowerCase()].value;
     });
 
-    service.description = form.description.value;
-    service.provider_info = {
+    serviceInfo.description = form.description.value;
+    serviceInfo.provider_info = {
       name: user?.displayName,
       email: user?.email,
       photo: user?.photoURL,
     };
-    console.log(service);
+
+    // AXIOS POST REQUEST to save service info to database:
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/add-service`,
+        serviceInfo
+      );
+      swal("Added Service", "Your service has been added", "success");
+    } catch (err) {
+      swal("Something wrong", `${err?.message}`, "error");
+
+    }
   };
 
   const addServiceFormInputs = serviceData.map((data) => (
