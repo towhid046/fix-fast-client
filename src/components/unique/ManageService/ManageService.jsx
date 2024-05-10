@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ManageService = ({ service, handleDeleteService }) => {
   const {
@@ -22,8 +23,15 @@ const ManageService = ({ service, handleDeleteService }) => {
         <strong>Location: {service_area}</strong>
         <p>{description.split(" ").slice(0, 10).join(" ")}</p>
         <div className="card-actions justify-end">
-          <button onClick={()=>handleDeleteService(_id)} className="btn btn-error">Delete</button>
-          <button className="btn btn-info">Edit</button>
+          <button
+            onClick={() => handleDeleteService(_id)}
+            className="btn btn-error"
+          >
+            Delete
+          </button>
+          <Link to={`/update-service/${_id}`}>
+            <button className="btn btn-info">Edit</button>
+          </Link>
         </div>
       </div>
     </div>
