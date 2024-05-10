@@ -8,6 +8,7 @@ import AllServicesPage from "../../pages/AllServicesPage/AllServicesPage";
 import AddServicePage from "../../pages/AddServicePage/AddServicePage";
 import PrivateRouters from "./PrivateRouters";
 import ServiceDetails from "../../pages/ServiceDetails/ServiceDetails";
+import BookNowPage from "../../pages/BookNowPage/BookNowPage";
 
 const routers = createBrowserRouter([
   {
@@ -46,6 +47,16 @@ const routers = createBrowserRouter([
         element: (
           <PrivateRouters>
             <ServiceDetails />
+          </PrivateRouters>
+        ),
+      },
+      {
+        path: "/booking/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/services/${params.id}`),
+        element: (
+          <PrivateRouters>
+            <BookNowPage />
           </PrivateRouters>
         ),
       },
