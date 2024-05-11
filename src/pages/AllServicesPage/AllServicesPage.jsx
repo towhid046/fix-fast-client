@@ -10,7 +10,7 @@ const AllServicesPage = () => {
   const [services, setServices] = useState([]);
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchLoading, setSearchLoading] = useState(false);
+  // const [searchLoading, setSearchLoading] = useState(true);
 
   useEffect(() => {
     scrollToTop();
@@ -38,24 +38,15 @@ const AllServicesPage = () => {
     setSearchText(value);
   };
 
-  const handleSearchOnChange = async (e) => {
+  const handleSearchOnChange = (e) => {
     const searchVal = e.target.value;
-    try {
       setSearchText(searchVal);
-      setSearchLoading(true);
-    } catch (error) {
-      setIsError(error?.message);
-    } finally {
-      setSearchLoading(false);
-    }
   };
 
   if (isError) {
     return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <h2 className="text-2xl font-bold text-gray-300">
-          No Search data Have found
-        </h2>
+      <div className="flex justify-center py-12 min-h-[80vh] items-center">
+        <h2 className="text-2xl font-bold text-gray-300">{isError}</h2>
       </div>
     );
   }
@@ -99,17 +90,11 @@ const AllServicesPage = () => {
           </label>
         </form>
       </div>
-      {searchLoading ? (
-        <div className="flex justify-center py-10">
-          <span className="loading loading-spinner loading-md"></span>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-6">
-          {services?.map((service) => (
-            <SingleService key={service._id} service={service} />
-          ))}
-        </div>
-      )}
+      <div className="flex flex-col gap-6">
+        {services?.map((service) => (
+          <SingleService key={service._id} service={service} />
+        ))}
+      </div>
       {services.length <= 0 && (
         <h2 className="text-2xl font-semibold italic text-gray-300 py-10 text-center">
           Sorry, No service have match in your search!

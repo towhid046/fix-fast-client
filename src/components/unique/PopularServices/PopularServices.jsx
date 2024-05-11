@@ -3,8 +3,18 @@ import axios from "axios";
 import SectionHeader from "./../../shared/SectionHeader/SectionHeader";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const PopularServices = () => {
+  useEffect(() => {
+    getData();
+  },[]);
+
+  const getData = async () => {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`);
+    return res.data;
+  };
+
   const {
     data: services,
     isLoading,
@@ -12,10 +22,7 @@ const PopularServices = () => {
     isError,
   } = useQuery({
     queryKey: ["services"],
-    queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`);
-      return res.data;
-    },
+    queryFn: getData,
   });
 
   if (isError) {
