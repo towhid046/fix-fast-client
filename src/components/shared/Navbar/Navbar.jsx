@@ -26,7 +26,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li className="relative dashboard-nav-link">
-          <span className="flex items-center gap-2 cursor-pointer hover:text-[#F96062]">
+          <span className="flex items-center gap-2 cursor-pointer hover:text-[#dd3333]">
             Dashboard
             <IoIosArrowDown className="down-arrow-icon transition-transform transform text-lg" />
           </span>
@@ -48,7 +48,6 @@ const Navbar = () => {
       )}
     </>
   );
-
 
   const menuLinks = (
     <ul
@@ -105,7 +104,6 @@ const Navbar = () => {
   }, [theme]);
 
   const handleThemeController = () => {
-    console.log("Theme is going to change...");
     setTheme(!theme);
   };
 
@@ -115,8 +113,7 @@ const Navbar = () => {
         <div className="navbar-start ">
           <div className={`flex items-center lg:hidden relative`}>
             <button className="text-3xl" onClick={handleMenuChecked}>
-              <span
-                className="transition ease-in-out duration-1000">
+              <span className="transition ease-in-out duration-1000">
                 {isChecked ? <RxCross2 /> : <LuMenu />}
               </span>
             </button>
@@ -136,7 +133,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex items-center main-manu menu-items-common gap-10 text-base font-medium px-1">{links}</ul>
+          <ul className="flex items-center main-manu menu-items-common gap-10 text-base font-medium px-1">
+            {links}
+          </ul>
         </div>
 
         <div className="navbar-end gap-6 items-center">
