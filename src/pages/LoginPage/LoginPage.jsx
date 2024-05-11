@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from "../../../src/assets/icons/google-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
@@ -12,7 +12,7 @@ const Login = () => {
   const { loginUser, logInWithGoogle, setLoading } = useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  //   const location = useLocation();
+    const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Login = () => {
       await loginUser(email, password);
       swal("Login Success", "You have login successfully", "success");
       e.target.reset();
-      navigate("/");
+      navigate(location?.state ? location.state : "/");
     } catch (err) {
       toast.error(`Something went wrong! ${err?.message} `, {
         position: "top-center",
@@ -42,7 +42,7 @@ const Login = () => {
     try {
       await logInWithGoogle();
       swal("Login Success", "You have login successfully", "success");
-      // navigate(location?.state ? location.state : "/");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
       swal("ERROR", `${error?.message}`, "error");
     }
