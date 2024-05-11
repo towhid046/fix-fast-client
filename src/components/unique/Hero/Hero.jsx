@@ -58,31 +58,35 @@ const Hero = () => {
 
   return (
     <section className="container mx-auto px-4">
-      <button onClick={handlePrev} className="btn hover:border-4 hover:border-base-100 btn-lg btn-circle text-3xl absolute left-12 border-base-100 border-4 z-40 top-[40%] ">
+      <button onClick={handlePrev} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle absolute left-12 border-base-100 border-4 z-40 top-1/3 ">
 
-      <MdOutlineKeyboardArrowLeft/>
+      <MdOutlineKeyboardArrowLeft className="text-2xl"/>
       </button>
 
       <Slider ref={sliderRef} {...settings} autoplay={true}>
         {slides?.map((slide) => (
           <div key={slide.id}>
-            <div
-              style={{ backgroundImage: `url(${slide.img})` }}
-              className="m-3 p-5 bg-cover bg-center rounded-2xl bg-no-repeat md:py-22 lg:py-28 py-12 flex  items-center text-white"
-            >
-              <div className=" max-w-xl text-center mx-auto">
+          <div
+            style={{ backgroundImage: `url(${slide.img})` }}
+            className="m-3 p-5 bg-cover bg-center rounded-2xl bg-no-repeat relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="relative z-10 flex flex-col justify-center items-center text-white">
+              <div className="max-w-xl text-center mx-auto p-8 rounded-lg">
                 <h2 className="font-bold text-4xl mb-4">{slide.title}</h2>
-                <p className=" mb-3">{slide.description}</p>
+                <p className="mb-3">{slide.description}</p>
                 <a href="#explore-now">
                   <button className="btn btn-outline btn-error text-base-100">Explore Now</button>
                 </a>
               </div>
             </div>
           </div>
+        </div>
+        
         ))}
       </Slider>
-      <button onClick={handleNext} className="btn hover:border-4 hover:border-base-100 btn-lg btn-circle text-3xl absolute right-12 border-base-100 border-4 z-40 top-[40%] ">
-      <MdOutlineKeyboardArrowRight/>
+      <button onClick={handleNext} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle  absolute right-12 border-base-100 border-4 z-40 top-1/3 ">
+      <MdOutlineKeyboardArrowRight className="text-2xl"/>
       </button>
     </section>
   );
