@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { useEffect } from "react";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -22,6 +23,7 @@ const ServiceDetails = () => {
 
   return (
     <section className="mb-16">
+      <DynamicHelmet title="Service Details"/>
       <SectionHeader />
       <div className="p-5 rounded-lg border">
         <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6 mb-10">

@@ -1,12 +1,12 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import googleLogo from "../../../src/assets/icons/google-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import swal from "sweetalert";
 import { toast } from "react-toastify";
-// import MyHelmate from "./../../components/Shared/MyHelmate/MyHelmate";
 import { UserContext } from "../../providers/AuthProvider/AuthProvider";
 import { scrollToTop } from "../../utilities/scrollToTop";
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, setLoading } = useContext(UserContext);
@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <div>
-      {/* <MyHelmate title="Login" /> */}
+      <DynamicHelmet title="Login"/>
 
       <div className="hero md:min-h-screen container-fluid pt-12 pb-8 mb-12">
         <div className="w-full px-4">

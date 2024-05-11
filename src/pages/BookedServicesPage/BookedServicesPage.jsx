@@ -6,6 +6,7 @@ import axios from "axios";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import { Link } from "react-router-dom";
 import BookedService from "../../components/unique/BookedService/BookedService";
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const BookedServicesPage = () => {
   const { user } = useAuth();
@@ -48,6 +49,7 @@ const BookedServicesPage = () => {
 
   return (
     <section className="pb-16">
+      <DynamicHelmet title="Booked Services"/>
       {services.length ? (
         <>
           <SectionHeader />

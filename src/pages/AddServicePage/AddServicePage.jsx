@@ -1,8 +1,7 @@
 import swal from "sweetalert";
-// import SectionHeader from "../../components/Shared/SectionHeader/SectionHeader";
 import { useEffect } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
-// import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
+import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet";
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
@@ -46,7 +45,6 @@ const AddService = () => {
       swal("Added Service", "Your service has been added", "success");
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
-
     }
   };
 
@@ -67,9 +65,7 @@ const AddService = () => {
 
   return (
     <section className="container mx-auto px-2 pb-24">
-      {/* <MyHelmate
-      title="Add Craft"
-      /> */}
+      <DynamicHelmet title="Add Service" />
       <SectionHeader title="Add A Service" />
       <div
         className={

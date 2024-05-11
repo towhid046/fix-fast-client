@@ -4,6 +4,7 @@ import SingleService from "../../components/unique/SingleService/SingleService";
 import SectionHeader from "../../components/shared/SectionHeader/SectionHeader";
 import { useEffect } from "react";
 import { scrollToTop } from "../../utilities/scrollToTop";
+import DynamicHelmet from './../../components/shared/DynamicHelmet/DynamicHelmet';
 
 const AllServicesPage = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const AllServicesPage = () => {
     queryFn: async () => {
       const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`);
       return res.data;
+
     },
   });
 
@@ -41,6 +43,7 @@ const AllServicesPage = () => {
 
   return (
     <section className="mb-12">
+      <DynamicHelmet title='Services'/>
       <SectionHeader />
       <div className="flex flex-col gap-6">
         {services?.map((service) => (

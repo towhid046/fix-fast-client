@@ -1,12 +1,11 @@
 import swal from "sweetalert";
-// import SectionHeader from "../../components/Shared/SectionHeader/SectionHeader";
 import { useEffect } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
-// import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const BookNowPage = () => {
   const service = useLoaderData();
@@ -81,6 +80,7 @@ const BookNowPage = () => {
 
   return (
     <section className="container mx-auto px-2 pb-24">
+      <DynamicHelmet title="Book Now"/>
       <SectionHeader title="Booking A Service" />
       <div
         className={

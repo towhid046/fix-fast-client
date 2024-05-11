@@ -5,6 +5,7 @@ import Faq from "./../../components/unique/Faq/Faq";
 import MobileApp from "./../../components/unique/MobileApp/MobileApp";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import { useEffect } from "react";
+import DynamicHelmet from './../../components/shared/DynamicHelmet/DynamicHelmet';
 
 const HomePage = () => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const HomePage = () => {
   }, []);
   return (
     <section>
+      <DynamicHelmet title="Home"/>
       <Hero />
       <PopularServices />
       <Faq />

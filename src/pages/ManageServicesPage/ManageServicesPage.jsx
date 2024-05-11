@@ -8,6 +8,7 @@ import ManageService from "./../../components/unique/ManageService/ManageService
 import swal from "sweetalert";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const ManageServicesPage = () => {
   const { user } = useAuth();
@@ -75,6 +76,7 @@ const ManageServicesPage = () => {
 
   return (
     <section className="pb-16">
+      <DynamicHelmet title="Manage Services"/>
       {services.length ? (
         <>
           <SectionHeader />

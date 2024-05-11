@@ -4,7 +4,7 @@ import { UserContext } from "../../providers/AuthProvider/AuthProvider";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
-// import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
+import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const RegisterPage = () => {
   const { createUser, updateUserProfile, setLoading } = useContext(UserContext);
@@ -84,7 +84,7 @@ const RegisterPage = () => {
 
   return (
     <div>
-      {/* <MyHelmate title="Registration"/> */}
+      <DynamicHelmet title="Register"/>
       <div className=" md:min-h-screen container-fluid pt-12 mb-16">
         <div className="w-full px-4">
           <div
