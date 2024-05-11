@@ -53,7 +53,7 @@ const Navbar = () => {
     <ul
       className={`${
         isChecked ? "translate-x-0 opacity-100 " : "-translate-x-full opacity-0"
-      } absolute bg-base-100 px-8 md:py-10 md:px-14 py-4 gap-4 md:gap-5 mt-14 rounded-xl flex flex-col w-max transition-transform  duration-500 transform ease-in-out menu-items-common font-medium shadow-lg`}
+      } absolute bg-base-100 px-8 md:py-10 md:px-14 py-4 gap-4 md:gap-5 mt-12 rounded-b-xl flex flex-col w-max transition-transform  duration-500 transform ease-in-out menu-items-common font-medium  border-b`}
     >
       <li>
         <NavLink to={"/"}>Home</NavLink>

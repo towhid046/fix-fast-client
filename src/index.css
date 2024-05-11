@@ -38,3 +38,12 @@
 .menu-items-common li > .active{
 color:#dd3333;
 }
+
+/* slick custom css */
+button.slick-arrow.slick-prev:before, .slick-next:before{
+    display: none;
+}
+button.slick-arrow.slick-next:before, .slick-next:before{
+    display: none;
+
+}
