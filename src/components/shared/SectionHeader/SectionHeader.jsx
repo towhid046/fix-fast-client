@@ -5,7 +5,7 @@ const SectionHeader = ({
 }) => {
   return (
     <header
-      className={`text-gray-800 container mx-auto text-center space-y-2 py-7 max-w-3xl lg:mt-8`}
+      className={`text-base-content container mx-auto text-center space-y-2 py-7 max-w-3xl lg:mt-8`}
     >
       <h2 className="font-bold text-3xl">{title}</h2>
       <p>{description}</p>

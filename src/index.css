@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main-manu li ul{
+    opacity: 0;
+    visibility: hidden;
+}
+.main-manu li:hover ul{
+    opacity: 1;
+    visibility: visible;
+    top: 144%;
+}
+.dashboard-nav-link:hover > span > .down-arrow-icon{
+    transform: rotate(180deg);
+}
+
+.menu-items-common li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #F96062;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .menu-items-common > li a:hover:after {
+    width: 100%;
+  }
+  
+.menu-items-common li > a{
+    display: inline-block;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    padding-bottom: 6px;
+}
+.menu-items-common li > .active{
+color:#F96062;
+}
+

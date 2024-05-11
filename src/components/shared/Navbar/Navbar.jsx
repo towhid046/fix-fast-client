@@ -1,10 +1,20 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo.png";
 import useAuth from "../../../hooks/useAuth";
-import swal  from 'sweetalert';
+import swal from "sweetalert";
+import { useEffect, useState } from "react";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+import { FiUserPlus } from "react-icons/fi";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+import { RxCross2 } from "react-icons/rx";
+import { LuMenu } from "react-icons/lu";
+import { IoIosArrowDown } from "react-icons/io";
+
 const Navbar = () => {
+  const [theme, setTheme] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const { user, logOutUser } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const links = (
     <>
@@ -15,79 +25,132 @@ const Navbar = () => {
         <NavLink to={"/all-services"}>Services</NavLink>
       </li>
       {user && (
-        <li>
-          <details>
-            <summary>Dashboard</summary>
-            <ul className="p-2">
-              <li>
-                <NavLink to={"/add-service"}>Add Service</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/manage-services"}>Manage Service</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/booked-services"}>Booked Services</NavLink>
-              </li>
-              <li>
-                <NavLink to={"/todo-services"}>Service To Do</NavLink>
-              </li>
-            </ul>
-          </details>
+        <li className="relative dashboard-nav-link">
+          <span className="flex items-center gap-2 cursor-pointer hover:text-[#F96062]">
+            Dashboard
+            <IoIosArrowDown className="down-arrow-icon transition-transform transform text-lg" />
+          </span>
+          <ul className="absolute top-0 w-max bg-base-100 p-4 transition-all duration-500 ease-in-out  flex flex-col gap-3 rounded-b-lg shadow-xl ">
+            <li>
+              <NavLink to={"/add-service"}>Add Service</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/manage-services"}>Manage Service</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/booked-services"}>Booked Services</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/todo-services"}>Service To Do</NavLink>
+            </li>
+          </ul>
         </li>
       )}
     </>
   );
 
+
+  const menuLinks = (
+    <ul
+      className={`${
+        isChecked ? "translate-x-0 opacity-100 " : "-translate-x-full opacity-0"
+      } absolute bg-base-100 px-8 md:py-10 md:px-14 py-4 gap-4 md:gap-5 mt-14 rounded-xl flex flex-col w-max transition-transform  duration-500 transform ease-in-out menu-items-common font-medium shadow-lg`}
+    >
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/all-services"}>Services</NavLink>
+      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/add-service"}>Add Service</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/manage-services"}>Manage Service</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/booked-services"}>Booked Services</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/todo-services"}>Service To Do</NavLink>
+          </li>
+        </>
+      )}
+    </ul>
+  );
+
+  const handleMenuChecked = () => {
+    setIsChecked(!isChecked);
+  };
+
   const handleLogOutUser = async () => {
     try {
       await logOutUser();
-      swal(
-        "Log Out Success!",
-        "You have successfully Log out",
-        "success"
-      );
-      navigate('/')
+      swal("Log Out Success!", "You have successfully Log out", "success");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
   };
 
+  useEffect(() => {
+    const html = document.getElementById("html");
+    if (theme) {
+      html.attributes[2].value = "dark";
+      return;
+    }
+    html.attributes[2].value = "light";
+  }, [theme]);
+
+  const handleThemeController = () => {
+    console.log("Theme is going to change...");
+    setTheme(!theme);
+  };
+
   return (
-    <nav className="shadow-sm bg-base-100 sticky z-50 top-0">
+    <nav className="shadow-sm px-3 bg-base-100 sticky z-50 top-0">
       <div className="navbar  container mx-auto px-2">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu gap-3 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        <div className="navbar-start ">
+          <div className={`flex items-center lg:hidden relative`}>
+            <button className="text-3xl" onClick={handleMenuChecked}>
+              <span
+                className="transition ease-in-out duration-1000">
+                {isChecked ? <RxCross2 /> : <LuMenu />}
+              </span>
+            </button>
+            <aside
+              className="absolute top-0 left-0"
+              onClick={handleMenuChecked}
             >
-              {links}
-            </ul>
+              {menuLinks}
+            </aside>
           </div>
-          <Link to={"/"}>
-            <img className="w-24" src={logo} alt="" />
-          </Link>
+
+          <div className="ml-4 lg:ml-0">
+            <Link to={"/"} className="flex items-center gap-2">
+              <HiOutlineWrenchScrewdriver className="text-3xl" />
+              <h2 className="text-3xl font-bold">FixFast</h2>
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu gap-3 menu-horizontal px-1">{links}</ul>
+          <ul className="flex items-center main-manu menu-items-common gap-10 text-base font-medium px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
+
+        <div className="navbar-end gap-6 items-center">
+          {/* theme controller */}
+          <div className="mt-2">
+            <button
+              className="text-[26px] tooltip tooltip-left"
+              data-tip={`${theme ? "Light Theme" : "Dark Theme"}`}
+              onClick={handleThemeController}
+            >
+              {theme ? <MdOutlineLightMode /> : <MdDarkMode />}
+            </button>
+          </div>
+
           {user ? (
             <div className="dropdown dropdown-end">
               <div
@@ -118,9 +181,15 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <Link to="/login" className="btn btn-success">
-              Login
-            </Link>
+            <div>
+              <Link
+                to="/login"
+                className="text-2xl tooltip tooltip-left"
+                data-tip="Login"
+              >
+                <FiUserPlus />
+              </Link>
+            </div>
           )}
         </div>
       </div>
