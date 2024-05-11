@@ -39,13 +39,13 @@ const ServiceCard = ({ service }) => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center space-y-3 flex-auto">
-        <h2 className="text-xl text-gray-400 font-semibold mb-5">
+        <h2 className="text-xl font-bold mb-5 border-b pb-3 w-full lg:border-0 text-center">
           Service Provider Info
         </h2>
         <figure>
           <img className="rounded-full w-24 h-24" src={photo} alt="" />
         </figure>
-        <h2 className="text-xl font-bold">Name: {name}</h2>
+        <h2 className="text-lg">Name: {name}</h2>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import axios from "axios";
+import swal from "sweetalert";
 
 const ServiceTodo = ({ service }) => {
   const {
@@ -11,25 +12,31 @@ const ServiceTodo = ({ service }) => {
     current_user_email,
     current_user_name,
     special_instruction,
+    serviceStatus,
   } = service;
-
 
   const handleServiceStatus = async (e) => {
     const currentStatus = e.target.value;
+
     try {
-      const res = await axios.patch(
-        `${import.meta.env.VITE_API_URL}/update-service-status/${_id}`, {currentStatus}
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/update-service-status/${_id}`,
+        { currentStatus }
       );
-      console.log(res.data);
+      swal(
+        "Status Updated",
+        "You have successfully updated this service Status!",
+        "success"
+      );
     } catch (err) {
-      console.error(err);
+      swal("Something went wrong", `${err?.message}`, "success");
     }
   };
 
   return (
     <div>
       <div className="p-5 rounded-lg border">
-        <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6 mb-10">
+        <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6">
           <figure className="flex-1">
             <img
               src={image_url}
@@ -58,9 +65,25 @@ const ServiceTodo = ({ service }) => {
                 onChange={handleServiceStatus}
                 className="select select-bordered w-full max-w-xs"
               >
-                <option value={"Pending"}>Pending</option>
-                <option value={"Working"}>Working</option>
-                <option value={"Complete"}>Complete</option>
+                <option value={serviceStatus}>{serviceStatus}</option>
+                <option
+                  className={`${serviceStatus === "Pending" && "hidden"}`}
+                  value={"Pending"}
+                >
+                  Pending
+                </option>
+                <option
+                  className={`${serviceStatus === "Working" && "hidden"}`}
+                  value={"Working"}
+                >
+                  Working
+                </option>
+                <option
+                  className={`${serviceStatus === "Complete" && "hidden"}`}
+                  value={"Complete"}
+                >
+                  Complete
+                </option>
               </select>
             </div>
           </div>
