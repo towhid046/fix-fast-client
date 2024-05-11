@@ -45,7 +45,7 @@ const BookNowPage = () => {
         form[input.title.toLowerCase()].value;
     });
 
-    serviceBookedInfo.serviceStatus = "pending";
+    serviceBookedInfo.serviceStatus = "Pending";
     serviceBookedInfo.service_taking_date = form.date.value;
     serviceBookedInfo.special_instruction = form.special_instruction.value;
 

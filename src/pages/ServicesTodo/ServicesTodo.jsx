@@ -1,32 +1,29 @@
-import { useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
-import { scrollToTop } from "../../utilities/scrollToTop";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import { Link } from "react-router-dom";
-import BookedService from "../../components/unique/BookedService/BookedService";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import SectionHeader from "../../components/shared/SectionHeader/SectionHeader";
+import ServiceTodo from "../../components/unique/ServiceTodo/ServiceTodo";
+import { useEffect } from "react";
+import { scrollToTop } from "./../../utilities/scrollToTop";
 
-const BookedServicesPage = () => {
-  const { user } = useAuth();
-
+const ServicesTodo = () => {
   useEffect(() => {
     scrollToTop();
   }, []);
-
+  const { user } = useAuth();
   const {
     data: services,
     isLoading,
     error,
     isError,
   } = useQuery({
-    queryKey: ["booked-services"],
+    queryKey: ["todo-services"],
     queryFn: async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/booked-services?email=${user?.email}`
+        `${import.meta.env.VITE_API_URL}/todo-services?email=${user?.email}`
       );
-
       return res.data;
     },
   });
@@ -49,12 +46,12 @@ const BookedServicesPage = () => {
 
   if (!services.length) {
     return (
-      <div className="flex gap-5 justify-center items-center min-h-[80vh] flex-col">
+      <div className="flex flex-col gap-5 justify-center items-center min-h-[80vh]">
         <h2 className="text-gray-300 font-bold text-center text-3xl">
-          Your don`t have booked any service yet!
+          Your service to do is empty now. To get service order
         </h2>
-        <Link to="/all-services">
-          <button className="btn btn-info btn-sm">See all services</button>
+        <Link to="/add-service">
+          <button className="btn btn-info btn-sm">Add Service</button>
         </Link>
       </div>
     );
@@ -62,15 +59,16 @@ const BookedServicesPage = () => {
 
   return (
     <section className="pb-16">
-      <DynamicHelmet title="Booked Services" />
-      <SectionHeader />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {services.map((service) => (
-          <BookedService key={service._id} service={service} />
+      <DynamicHelmet title="Manage Services" />
+
+      <SectionHeader title="Services Todo" />
+      <div className="flex flex-col gap-5">
+        {services.map((service, index) => (
+          <ServiceTodo key={service._id} service={service} index={index + 1} />
         ))}
       </div>
     </section>
   );
 };
 
-export default BookedServicesPage;
+export default ServicesTodo;

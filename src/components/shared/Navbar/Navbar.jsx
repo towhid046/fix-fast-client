@@ -29,7 +29,7 @@ const Navbar = () => {
                 <NavLink to={"/booked-services"}>Booked Services</NavLink>
               </li>
               <li>
-                <NavLink to={"/service-to-do"}>Service To Do</NavLink>
+                <NavLink to={"/todo-services"}>Service To Do</NavLink>
               </li>
             </ul>
           </details>

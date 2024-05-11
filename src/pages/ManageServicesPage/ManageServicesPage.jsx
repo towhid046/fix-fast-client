@@ -74,47 +74,47 @@ const ManageServicesPage = () => {
     );
   }
 
+  if (!services.length) {
+    return (
+      <div className="flex flex-col gap-5 justify-center items-center min-h-[80vh]">
+        <h2 className="text-gray-300 font-bold text-center text-3xl">
+          Your don`t have added any service yet
+        </h2>
+        <Link to="/add-service">
+          <button className="btn btn-info btn-sm">Add Service</button>
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <section className="pb-16">
-      <DynamicHelmet title="Manage Services"/>
-      {services.length ? (
-        <>
-          <SectionHeader />
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead className="bg-black text-white ">
-                <tr className="text-center">
-                  <th>SN.</th>
-                  <th>Service Name</th>
-                  <th>Price</th>
-                  <th>Location</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {services.map((service, index) => (
-                  <ManageService
-                    key={service._id}
-                    service={service}
-                    index={index + 1}
-                    handleDeleteService={handleDeleteService}
-                  />
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      ) : (
-        <div className="flex flex-col gap-5 justify-center items-center min-h-[80vh]">
-          <h2 className="text-gray-300 font-bold text-center text-3xl">
-            Your don`t have added any service yet
-          </h2>
-          <Link to="/add-service">
-            <button className="btn btn-info btn-sm">Add Service</button>
-          </Link>
-        </div>
-      )}
+      <DynamicHelmet title="Manage Services" />
+      <SectionHeader />
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead className="bg-black text-white ">
+            <tr className="text-center">
+              <th>SN.</th>
+              <th>Service Name</th>
+              <th>Price</th>
+              <th>Location</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {services.map((service, index) => (
+              <ManageService
+                key={service._id}
+                service={service}
+                index={index + 1}
+                handleDeleteService={handleDeleteService}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };
