@@ -10,7 +10,6 @@ const AllServicesPage = () => {
   const [services, setServices] = useState([]);
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  // const [searchLoading, setSearchLoading] = useState(true);
 
   useEffect(() => {
     scrollToTop();
@@ -71,7 +70,7 @@ const AllServicesPage = () => {
               type="text"
               name="search"
               className="grow"
-              placeholder="Search services"
+              placeholder="Search by service name"
             />
             <button>
               <svg
