@@ -25,13 +25,13 @@ const MobileApp = () => {
           </p>
 
           <div className="flex md:flex-row flex-col items-center justify-between md:gap-8 gap-5">
-              <button className="flex items-center  justify-center w-full gap-5 bg-gray-100 md:py-4 py-3 rounded-lg hover:bg-gray-600 transition ease-in-out hover:text-white">
+              <button className="flex items-center  justify-center w-full gap-5 bg-gray-100 md:py-4 py-3 rounded-lg hover:bg-neutral transition ease-in-out hover:text-white">
                 <img src={appleStoreImg} alt="" className="w-10" />
                 <span className="text-dark-gray text-lg font-semibold">
                   App Store
                 </span>
               </button>
-              <button className="hover:bg-gray-600 transition ease-in-out hover:text-white flex items-center gap-5 bg-gray-100  md:py-4 py-3 rounded-lg w-full  justify-center ">
+              <button className="hover:bg-success transition ease-in-out hover:text-white flex items-center gap-5 bg-gray-100  md:py-4 py-3 rounded-lg w-full  justify-center ">
                 <img
                   src={playStoreImg}
                   alt=""

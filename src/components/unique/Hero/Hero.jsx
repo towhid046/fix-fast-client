@@ -54,7 +54,7 @@ const Hero = () => {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 1,
-    speed: 1000,
+    speed: 800,
     autoplaySpeed:5000
   };
 

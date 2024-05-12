@@ -5,7 +5,7 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
-import SectionHeader from './../../components/shared/SectionHeader/SectionHeader';
+import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 
 const RegisterPage = () => {
   const { createUser, updateUserProfile, setLoading } = useContext(UserContext);
@@ -85,15 +85,15 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <DynamicHelmet title="Register"/>
+      <DynamicHelmet title="Register" />
       <SectionHeader
-      title="Register Your Account"
-      description={`Join Our Community: Register and Unlock Access to Exclusive Services`}
+        title="Register Your Account"
+        description={`Join Our Community: Register and Unlock Access to Exclusive Services`}
       />
       <div className="mb-16">
-        <div className="w-full px-4">
+        <div className="w-full">
           <div
-            className={`max-w-xl bg-base-100 mx-auto md:p-12 py-8 px-6 border rounded-lg`}
+            className={`max-w-xl bg-base-100 mx-auto md:p-12 py-5 px-4 border rounded-lg`}
           >
             <form onSubmit={handelRegisterForm} className="mt-5 text-black">
               {/* Name input */}
@@ -176,12 +176,12 @@ const RegisterPage = () => {
               <div className="flex items-center gap-1 mt-6">
                 <input
                   type="checkbox"
-                  id="terms-contition"
+                  id="terms-condition"
                   className="checkbox checkbox-sm  "
                   required
                 />
-                <label htmlFor="terms-contition" className="cursor-pointer">
-                  <span>Accept Term & Conditions</span>
+                <label htmlFor="terms-condition" className="cursor-pointer">
+                  <p>Accept Term & Conditions   </p>
                 </label>
               </div>
 

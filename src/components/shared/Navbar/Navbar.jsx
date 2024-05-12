@@ -9,6 +9,7 @@ import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 import { LuMenu } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
+import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(false);
@@ -168,14 +169,17 @@ const Navbar = () => {
                 <li>
                   <a className="justify-between">
                     Profile
-                    <span className="badge">New</span>
                   </a>
                 </li>
                 <li>
                   <a>Settings</a>
                 </li>
                 <li onClick={handleLogOutUser}>
-                  <a>Logout</a>
+                  <button className="flex items-center justify-between">
+                    Logout
+            <FiLogOut className="text-error text-xl"/>
+
+                  </button>
                 </li>
               </ul>
             </div>

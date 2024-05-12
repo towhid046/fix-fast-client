@@ -36,6 +36,18 @@ const faqs = [
       answer:
         "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
     },
+    {
+      id: 7,
+      question: "Do you ship internationally?",
+      answer:
+        "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
+    },
+    {
+      id: 8,
+      question: "Do you ship internationally?",
+      answer:
+        "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
+    },
   
   ];
   export default faqs;

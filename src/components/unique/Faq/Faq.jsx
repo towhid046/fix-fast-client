@@ -1,39 +1,33 @@
-import faqImg from "../../../assets/images/faq.png";
 import faqs from "./faqData";
 import { Slide } from "react-awesome-reveal";
 import SectionHeader from "./../../shared/SectionHeader/SectionHeader";
 
 const Faq = () => {
   return (
-    <section id="faq" className="py-10">
-      <SectionHeader />
-      <div className="flex justify-between flex-col lg:flex-row items-center gap-10">
-        <div className="w-[86%]">
-          <Slide>
-            <img className="w-full" src={faqImg} alt="Faq img" />
-          </Slide>
-        </div>
-        <Slide direction="right">
-          <div className="flex-1">
-            {faqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="collapse collapse-arrow shadow-md rounded-none"
-              >
-                <input type="radio" name="my-accordion-2" />
-                <div className="collapse-title text-md font-bold text-custom-black ">
-                  {faq.question}
-                </div>
-                <div className="collapse-content">
-                  <p className="text-custom-gray text-base font-normal">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
+    <section id="faq" className="py-6">
+      <SectionHeader title="Get answer of FAQ" 
+      description="Got Questions? Find Answers Here: Explore Our FAQ Section"
+      />
+      <Slide>
+      <div className="flex justify-center">
+      <div className="join join-vertical max-w-4xl mx-auto">
+        {faqs.map((faq) => (
+          <div
+            key={faq.id}
+            className="collapse collapse-arrow join-item border border-base-300"
+          >
+            <input type="radio" name="my-accordion-4" />
+            <div className="collapse-title text-lg font-semibold">
+              {faq.question}
+            </div>
+            <div className="collapse-content">
+              <p className="">{faq.answer}</p>
+            </div>
           </div>
-        </Slide>
+        ))}
       </div>
+      </div>
+      </Slide>
     </section>
   );
 };

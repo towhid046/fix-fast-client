@@ -84,7 +84,7 @@ const UpdateServicePage = () => {
       />
       <div
         className={
-          " border text-black rounded-lg lg:px-20 md:px-12 px-4 py-12 my-12"
+          " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
         }
       >
         <div>

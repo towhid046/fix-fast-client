@@ -67,7 +67,7 @@ const AllServicesPage = () => {
       />
       <div className="my-8">
         <form onSubmit={handleSearchService} className="w-full">
-          <label className="input input-bordered max-w-md flex mx-auto items-center gap-2">
+          <label className="input input-bordered rounded-full max-w-md flex mx-auto items-center gap-2">
             <input
               onChange={handleSearchOnChange}
               type="text"

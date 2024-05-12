@@ -18,8 +18,8 @@ const HomePage = () => {
       <DynamicHelmet title="Home"/>
       <Hero />
       <PopularServices />
-      <Faq />
       <MobileApp />
+      <Faq />
     </section>
   );
 };

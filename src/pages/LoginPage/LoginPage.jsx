@@ -61,16 +61,16 @@ const Login = () => {
       />
 
       <div className="hero  container-fluid  pb-8 mb-12">
-        <div className="w-full px-4">
+        <div className="w-full">
           <div
-            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-8 px-6 border-gray-700"
+            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-8 px-4 border-gray-700"
               }`}
           >
             <div className="text-center">
               <div className="flex justify-center gap-5 mb-3">
                 <button
                   onClick={handelLogInWithGoogle}
-                  className="btn flex items-center gap-2  "
+                  className="btn flex items-center gap-2  w-full "
                 >
                   <img className="w-5" src={googleLogo} alt="Google" />
                   <span>Sign In With Google</span>
