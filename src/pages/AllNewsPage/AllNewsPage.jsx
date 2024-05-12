@@ -30,7 +30,7 @@ const AllNewsPage = () => {
   }
 
   return (
-    <section className="my-8">
+    <section className="my-8 pb-16">
       <SectionHeader title="Latest News Section" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
         {news?.map((info) => (

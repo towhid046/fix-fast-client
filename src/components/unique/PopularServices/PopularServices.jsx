@@ -53,12 +53,14 @@ const PopularServices = () => {
           <ServiceCard key={service._id} service={service} />
         ))}
       </div>
-      <Link to={"/all-services"} className="flex justify-center">
-        <button className="btn rounded-3xl mt-6 btn-outline btn-error btn-wide flex items-center gap-2">
+     <div className="flex justify-center my-7">
+     <Link to={"/all-services"} >
+        <button className="rounded-full md:px-12 px-5 btn btn-outline btn-error ">
           View All Services
           <BsArrowRight className="text-xl" />
         </button>
       </Link>
+     </div>
     </section>
   );
 };

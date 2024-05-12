@@ -7,11 +7,11 @@ const NewsCard = ({ info = "" }) => {
     info;
 
   return (
-    <div className="bg-base-100  border rounded justify-between flex flex-col">
-      <figure className="relative overflow-hidden">
-        <Link to={`/news-details/${_id}`}>
+    <div className="bg-base-100  border rounded-lg justify-between flex flex-col">
+      <figure className="relative overflow-hidden rounded-lg p-5">
+        <Link to={`/news-details/${_id}`} className=" overflow-hidden">
           <img
-            className="rounded h-80 w-full hover:scale-125 ease-in-out duration-500 transition cursor-pointer"
+            className="rounded-lg h-60 w-full cursor-pointer"
             src={thumbnail_img}
             alt="News Image"
           />

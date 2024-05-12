@@ -1,45 +1,112 @@
+import { Link } from "react-router-dom";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaXTwitter, FaLinkedin, FaArrowTrendUp } from "react-icons/fa6";
+import { FiMapPin } from "react-icons/fi";
+import { LuPhone } from "react-icons/lu";
+import { IoMailOutline } from "react-icons/io5";
+import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+import { IoIosArrowForward } from "react-icons/io";
+
 const Footer = () => {
+  const socialIcons = [
+    <FaFacebook />,
+    <FaLinkedin />,
+    <FaInstagram />,
+    <FaXTwitter />,
+  ];
+
+  const contacts = [
+    { icon: <IoMailOutline />, text: "abc123@gmail.com" },
+    { icon: <LuPhone />, text: "+11 23456789123" },
+    {
+      icon: <FiMapPin />,
+      text: "127 Midtown Manhattan, New York",
+    },
+  ];
+
+  const services = [
+    { name: "Log In", url: "/login" },
+    { name: "Register", url: "/register" },
+    { name: "UserProfile", url: "/user-profile" },
+    { name: "Saved Items", url: "/saved-properties" },
+  ];
+
   return (
-    <footer className="bg-base-200 ">
-      <div className="footer p-10 text-base-content container mx-auto px-4">
-        <nav>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </nav>
-        <form>
-          <h6 className="footer-title">Newsletter</h6>
+    <>
+      <footer className="bg-neutral">
+        <div className="footer container border-b mx-auto px-4 p-10 text-neutral-content">
+          <div className="max-w-xs">
+          <div className="ml-4 lg:ml-0">
+            <Link to={"/"} className="flex items-center gap-2">
+              <HiOutlineWrenchScrewdriver className="text-3xl" />
+              <h2 className="text-3xl font-bold">FixFast</h2>
+            </Link>
+          </div>
+            <p>
+            At FixFast: Connecting Service Providers and Consumers for Quick Solutions.
+            </p>
+            <ul className="mt-4 flex gap-3 text-xl items-center text-error ">
+              {socialIcons.map((icon, index) => (
+                <li className="cursor-pointer hover:text-base-300 transition duration-500 ease-in-out text-xl" key={index}>
+                  {icon}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+          {/* Quick links */}
+          <nav>
+            <h6 className="footer-title text-lg">Quick Links</h6>
+            {services.map((link, index) => (
+              <Link to={link.url} key={index} className="link link-hover flex items-center gap-1 hover:text-error transition duration-300 ease-in-out">
+                <IoIosArrowForward/>
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* contact */}
+          <ul>
+            <h6 className="footer-title text-lg">Contact</h6>
+            {contacts.map((contact, index) => (
+              <li key={index} className="flex gap-3">
+                <span className="text-lg">{contact.icon}</span>
+                <span>{contact.text}</span>
+              </li>
+            ))}
+          </ul>
+
+          <form className="max-w-xs" onClick={(e)=>{e.preventDefault()}}>
+          <h6 className="footer-title text-lg">Newsletter</h6>
+          <p>Subscribe our news letter to get exciting latest and updated news.</p>
           <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
             <div className="join">
               <input
                 type="text"
-                placeholder="username@site.com"
-                className="input input-bordered join-item"
+                placeholder="Enter Your Email"
+                className="input bg-base-200 text-base-content focus:outline-none border focus:border-neutral-content join-item"
               />
-              <button className="btn btn-primary join-item">Subscribe</button>
+              <button className="btn btn-error join-item">
+              <FaArrowTrendUp className="text-xl text-base-300"/>
+              </button>
             </div>
           </fieldset>
         </form>
-      </div>
-    </footer>
+
+        </div>
+      </footer>
+
+      <footer className="  bg-neutral ">
+        <div className=" container md:flex-row flex-col flex justify-between  mx-auto px-4 items-center py-4 text-neutral-content text-[13px] gap-3">
+          <p>Copyright &copy; 2024 - All right reserved</p>
+          <ul className="flex gap-3">
+            <li className="link link-hover hover:text-error transition duration-300 ease-in-out">Terms of use</li> |
+            <li className="link link-hover hover:text-error transition duration-300 ease-in-out">Privacy policy</li>
+          </ul>
+        </div>
+      </footer>
+    </>
   );
 };
 
