@@ -13,6 +13,8 @@ import ManageServicesPage from "../../pages/ManageServicesPage/ManageServicesPag
 import UpdateServicePage from "../../pages/UpdateServicePage/UpdateServicePage";
 import BookedServicesPage from "../../pages/BookedServicesPage/BookedServicesPage";
 import ServicesTodo from "../../pages/ServicesTodo/ServicesTodo";
+import NewsDetails from "../../pages/NewsDetails/NewsDetails";
+import AllNewsPage from "../../pages/AllNewsPage/AllNewsPage";
 
 const routers = createBrowserRouter([
   {
@@ -81,6 +83,18 @@ const routers = createBrowserRouter([
             <UpdateServicePage />
           </PrivateRouters>
         ),
+      },
+      {
+        path: "/all-news",
+        element: <AllNewsPage />,
+      },
+      {
+        path: "/news-details/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://green-villa-server-eight.vercel.app/news/${params.id}`
+          ),
+        element: <NewsDetails />,
       },
       {
         path: "/booked-services",

@@ -4,7 +4,7 @@ import SectionHeader from "./../../shared/SectionHeader/SectionHeader";
 
 const Faq = () => {
   return (
-    <section id="faq" className="py-6">
+    <section id="faq" className="py-6 mb-16">
       <SectionHeader title="Get answer of FAQ" 
       description="Got Questions? Find Answers Here: Explore Our FAQ Section"
       />

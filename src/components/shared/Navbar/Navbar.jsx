@@ -53,7 +53,7 @@ const Navbar = () => {
   const menuLinks = (
     <ul
       className={`${
-        isChecked ? "translate-x-0 opacity-100 " : "-translate-x-full opacity-0"
+        isChecked ? "flex flex-col" : "hidden"
       } absolute bg-base-100 px-8 md:py-10 md:px-14 py-4 gap-4 md:gap-5 mt-12 rounded-b-xl flex flex-col w-max transition-transform  duration-500 transform ease-in-out menu-items-common font-medium  border-b`}
     >
       <li>
@@ -167,9 +167,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">
-                    Profile
-                  </a>
+                  <a className="justify-between">Profile</a>
                 </li>
                 <li>
                   <a>Settings</a>
@@ -177,8 +175,7 @@ const Navbar = () => {
                 <li onClick={handleLogOutUser}>
                   <button className="flex items-center justify-between">
                     Logout
-            <FiLogOut className="text-error text-xl"/>
-
+                    <FiLogOut className="text-error text-xl" />
                   </button>
                 </li>
               </ul>

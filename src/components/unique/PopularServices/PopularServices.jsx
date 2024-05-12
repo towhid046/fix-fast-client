@@ -55,7 +55,7 @@ const PopularServices = () => {
       </div>
       <Link to={"/all-services"} className="flex justify-center">
         <button className="btn rounded-3xl mt-6 btn-outline btn-error btn-wide flex items-center gap-2">
-          View All
+          View All Services
           <BsArrowRight className="text-xl" />
         </button>
       </Link>
