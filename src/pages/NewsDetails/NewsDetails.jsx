@@ -16,6 +16,7 @@ const NewsDetails = () => {
   return (
     <section className="mb-16">
       <SectionHeader
+      name="News Details"
         title={title}
         description={description?.split(" ").splice(0, 15).join(" ")}
       />

@@ -5,8 +5,8 @@ import SectionHeader from "./../../shared/SectionHeader/SectionHeader";
 const Faq = () => {
   return (
     <section id="faq" className="py-6 mb-16">
-      <SectionHeader title="Get answer of FAQ" 
-      description="Got Questions? Find Answers Here: Explore Our FAQ Section"
+      <SectionHeader name="faq section" title="Get answer of FAQ" 
+      description="Got Questions? Find Answers Here: Explore Our Frequently asked questions Section"
       />
       <Slide>
       <div className="flex justify-center">

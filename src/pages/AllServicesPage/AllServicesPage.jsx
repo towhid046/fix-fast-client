@@ -59,13 +59,13 @@ const AllServicesPage = () => {
   }
 
   return (
-    <section className="mb-12">
+    <section className="mb-16">
       <DynamicHelmet title="Services" />
       <SectionHeader 
       title="Explore All Services"
       description="Explore a comprehensive array of services catering to all your electronics needs. From repairs to customizations, find everything under one roof!"
       />
-      <div className="my-8">
+      <div className="mb-10">
         <form onSubmit={handleSearchService} className="w-full">
           <label className="input input-bordered rounded-full max-w-md flex mx-auto items-center gap-2">
             <input
@@ -92,6 +92,7 @@ const AllServicesPage = () => {
           </label>
         </form>
       </div>
+
       <div className="flex flex-col gap-6">
         {services?.map((service) => (
           <ServiceCard key={service._id} service={service} />

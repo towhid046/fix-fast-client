@@ -30,7 +30,11 @@ const NewsSection = () => {
 
   return (
     <section className="my-8">
-      <SectionHeader title="Latest News Section" />
+      <SectionHeader
+      name="Latest News"
+      title="Discover Our Latest News"
+      description="Stay Updated with FixFast: Explore the Latest News and Updates on Service Solutions, Provider Insights, and Consumer Trends."
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
         {news?.slice(0,3).map((info) => (
           <NewsCard key={info.id} info={info} />

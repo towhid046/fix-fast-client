@@ -82,13 +82,14 @@ const BookNowPage = () => {
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Book Now" />
       <SectionHeader
-        title={`Booking The ${service_name} Service`}
-        description={`Welcome to our booking service page! Select your desired ${service_name} package for your location in ${service_area}. Reserve now for just ${price} and secure your appointment with our expert team!
+        name="Booking service"
+        title={`${service_name}`}
+        description={`Select your desired ${service_name} package for your location in ${service_area}.
       `}
       />
       <div
         className={
-          " border text-black rounded-lg lg:px-20 md:px-12 px-4 py-12 my-12"
+          " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
         }
       >
         <div>

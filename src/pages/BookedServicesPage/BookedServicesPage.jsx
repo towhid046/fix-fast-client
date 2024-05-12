@@ -64,6 +64,7 @@ const BookedServicesPage = () => {
     <section className="pb-16">
       <DynamicHelmet title="Booked Services" />
       <SectionHeader
+      name="Booked Services"
         title="Truck Your Booked Services"
         description={`"Track Your Engagements: Explore Your Booked Services Overview"`}
       />

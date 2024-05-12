@@ -28,8 +28,9 @@ const ServiceDetails = () => {
     <section className="mb-16">
       <DynamicHelmet title="Service Details" />
       <SectionHeader
-        title={service_name + " Details"}
-        description={`Discover the details of our ${service_name} service, available in ${service_area}. Priced at ${price}, this offering ensures top-notch quality and expertise to meet your needs.
+        name="Service Details"
+        title={service_name}
+        description={`Discover the details of our ${service_name} service, available in ${service_area}.
       `}
       />
       <div className="p-5 rounded-lg border">

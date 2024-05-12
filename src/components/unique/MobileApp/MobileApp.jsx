@@ -1,11 +1,10 @@
 import mobileImg from '../../../assets/images/mobile-images.png'
 import playStoreImg from '../../../assets/images/google-play-icon.png'
 import appleStoreImg from '../../../assets/images/apple-icon.png'
-import SectionHeader from './../../shared/SectionHeader/SectionHeader';
 const MobileApp = () => {
+  const name = 'Get Our App'
   return (
-    <section className="max-w-4xl mx-auto pb-16">
-        <SectionHeader/>
+    <section className="max-w-4xl mx-auto my-16">
       <div className="px-100 flex py-6 lg:flex-row flex-col items-center justify-between lg:gap-32 gap-8">
         <div>
           <img
@@ -16,10 +15,11 @@ const MobileApp = () => {
         </div>
 
         <div>
-          <h2 className="text-3xl font-bold">
+        <h3 className="text-md font-bold text-[#F96062]">{`${ name.toUpperCase()}`}</h3>
+          <h2 className="md:text-3xl text-2xl font-bold">
             Get the FixFast mobile app more easily.
           </h2>
-          <p className="section-paragraph mt-5 mb-16">
+          <p className="mt-5 mb-16">
             Get our app from google play store or apple store. It is so
             lightweight.
           </p>

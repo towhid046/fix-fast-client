@@ -128,13 +128,15 @@ const Navbar = () => {
 
           <div className="ml-4 lg:ml-0">
             <Link to={"/"} className="flex items-center gap-2">
-              <HiOutlineWrenchScrewdriver className="text-3xl" />
-              <h2 className="text-3xl font-bold">FixFast</h2>
+              <HiOutlineWrenchScrewdriver className="text-3xl text-[#dd3333]" />
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#dd3333] to-neutral inline-block text-transparent bg-clip-text">
+                FixFast
+              </h2>
             </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex items-center main-manu menu-items-common gap-10 text-base font-medium px-1">
+          <ul className="flex main-manu menu-items-common  gap-10 text-base font-medium px-1">
             {links}
           </ul>
         </div>

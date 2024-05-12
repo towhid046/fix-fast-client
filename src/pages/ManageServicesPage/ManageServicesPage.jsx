@@ -91,8 +91,9 @@ const ManageServicesPage = () => {
     <section className="pb-16">
       <DynamicHelmet title="Manage Services" />
       <SectionHeader
-        title="Manage your services"
-        description={`"Efficiently oversee your services: view, update, or delete listings as a provider. Streamline your offerings effortlessly for optimal efficiency."`}
+      name="Manage Service"
+        title="Efficiently Oversee Your Existing Services"
+        description={`In here you can view, update, or delete listings as a provider.`}
       />
       <div className="overflow-x-auto">
         <table className="table">

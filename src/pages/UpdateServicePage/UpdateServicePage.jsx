@@ -79,8 +79,9 @@ const UpdateServicePage = () => {
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Update Service" />
       <SectionHeader
-        title={`Update The ${service_name}`}
-        description="Stay up-to-date with your offerings! Easily modify and refine your added services as a provider. Keep your listings fresh and aligned with your evolving expertise."
+      name="Update service"
+        title={`Update Your ${service_name}`}
+        description="Stay up-to-date with your offerings!."
       />
       <div
         className={
@@ -106,7 +107,7 @@ const UpdateServicePage = () => {
             </div>
 
             <div>
-              <button className="btn w-full font-bold btn-success text-base-100">
+              <button className="btn w-full font-bold btn-neutral  text-neutral-content">
                 Update Service
               </button>
             </div>

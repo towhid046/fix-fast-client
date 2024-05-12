@@ -65,7 +65,7 @@ const Hero = () => {
       <MdOutlineKeyboardArrowLeft className="text-2xl"/>
       </button>
 
-      <Slider ref={sliderRef} {...settings} autoplay={true}>
+      <Slider className="mx-auto" ref={sliderRef} {...settings} autoplay={true}>
         {slides?.map((slide) => (
           <div key={slide.id}>
           <div

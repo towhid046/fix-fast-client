@@ -30,8 +30,12 @@ const AllNewsPage = () => {
   }
 
   return (
-    <section className="my-8 pb-16">
-      <SectionHeader title="Latest News Section" />
+    <section className="pb-16">
+      <SectionHeader
+      name="All News"
+      title="Explore All News" 
+      description={`"Discover a Wealth of Information: Dive into FixFast's All-Encompassing News Section for Insights, Tips, and Trends in the Service Industry."`}
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
         {news?.map((info) => (
           <NewsCard key={info.id} info={info} />

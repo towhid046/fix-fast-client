@@ -56,14 +56,15 @@ const Login = () => {
   return (
     <div>
       <DynamicHelmet title="Login" />
-      <SectionHeader title="Log In Your account" 
-      description="Sign in to Your Account: Access Your Profile and Services"
+      <SectionHeader
+        title="Log In Your account"
+        description="Sign in to Your Account: Access Your Profile and Services"
       />
 
-      <div className="hero  container-fluid  pb-8 mb-12">
+      <div className="hero  pb-8 mb-12">
         <div className="w-full">
           <div
-            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-8 px-4 border-gray-700"
+            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-5 px-4 "
               }`}
           >
             <div className="text-center">
@@ -139,7 +140,7 @@ const Login = () => {
               Don`t have an account?{" "}
               <Link
                 to={"/register"}
-                className=" cursor-pointer italic link link-success font-semibold"
+                className=" cursor-pointer italic link link-neutral-content font-semibold"
               >
                 Register
               </Link>

@@ -66,8 +66,10 @@ const AddService = () => {
   return (
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Add Service" />
-      <SectionHeader title="Add A New Service"
-      description="Enhance your service portfolio by seamlessly adding a new offering as a service provider. Expand your reach and cater to a broader audience with our user-friendly platform"
+      <SectionHeader
+      name="Add Service"
+        title="Add A New Service"
+        description="Enhance your service portfolio by seamlessly adding a new offering as a service provider."
       />
       <div
         className={

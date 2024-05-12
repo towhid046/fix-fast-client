@@ -45,6 +45,7 @@ const PopularServices = () => {
   return (
     <section className="mb-6">
       <SectionHeader
+      name="Popular services"
         title="Discover Our Popular Services"
         description="Unlock a world of premier electronics solutions with our popular services. Explore top-rated offerings trusted by providers and consumers alike!"
       />

@@ -61,7 +61,9 @@ const ServicesTodo = () => {
     <section className="pb-16">
       <DynamicHelmet title="Manage Services" />
 
-      <SectionHeader title="Services Todo" 
+      <SectionHeader 
+      name="Services Todo"
+      title="Services You Have Got to Work With " 
       description={`"Stay on Task: Manage Your Pending Service Requests Effortlessly"`}
       />
       <div className="flex flex-col gap-5">

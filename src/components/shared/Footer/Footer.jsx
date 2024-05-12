@@ -24,11 +24,11 @@ const Footer = () => {
     },
   ];
 
-  const services = [
-    { name: "Log In", url: "/login" },
+  const quickLinks = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/all-services" },
+    { name: "News", url: "/all-news" },
     { name: "Register", url: "/register" },
-    { name: "UserProfile", url: "/user-profile" },
-    { name: "Saved Items", url: "/saved-properties" },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Footer = () => {
       <footer className="bg-neutral">
         <div className="footer container border-b mx-auto px-4 p-10 text-neutral-content">
           <div className="max-w-xs">
-          <div className="ml-4 lg:ml-0">
+          <div>
             <Link to={"/"} className="flex items-center gap-2">
               <HiOutlineWrenchScrewdriver className="text-3xl" />
               <h2 className="text-3xl font-bold">FixFast</h2>
@@ -45,7 +45,7 @@ const Footer = () => {
             <p>
             At FixFast: Connecting Service Providers and Consumers for Quick Solutions.
             </p>
-            <ul className="mt-4 flex gap-3 text-xl items-center text-error ">
+            <ul className="mt-6 flex gap-3 text-xl items-center text-error ">
               {socialIcons.map((icon, index) => (
                 <li className="cursor-pointer hover:text-base-300 transition duration-500 ease-in-out text-xl" key={index}>
                   {icon}
@@ -54,11 +54,10 @@ const Footer = () => {
             </ul>
           </div>
 
-
           {/* Quick links */}
           <nav>
             <h6 className="footer-title text-lg">Quick Links</h6>
-            {services.map((link, index) => (
+            {quickLinks?.map((link, index) => (
               <Link to={link.url} key={index} className="link link-hover flex items-center gap-1 hover:text-error transition duration-300 ease-in-out">
                 <IoIosArrowForward/>
                 {link.name}
@@ -70,7 +69,7 @@ const Footer = () => {
           <ul>
             <h6 className="footer-title text-lg">Contact</h6>
             {contacts.map((contact, index) => (
-              <li key={index} className="flex gap-3">
+              <li key={index} className="flex gap-3 mb-1">
                 <span className="text-lg">{contact.icon}</span>
                 <span>{contact.text}</span>
               </li>
@@ -80,7 +79,7 @@ const Footer = () => {
           <form className="max-w-xs" onClick={(e)=>{e.preventDefault()}}>
           <h6 className="footer-title text-lg">Newsletter</h6>
           <p>Subscribe our news letter to get exciting latest and updated news.</p>
-          <fieldset className="form-control w-80">
+          <fieldset className="form-control mt-1">
             <div className="join">
               <input
                 type="text"
