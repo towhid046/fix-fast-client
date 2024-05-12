@@ -28,7 +28,7 @@ const Navbar = () => {
         <li className="relative dashboard-nav-link">
           <span className="flex items-center gap-2 cursor-pointer hover:text-[#dd3333]">
             Dashboard
-            <IoIosArrowDown className="down-arrow-icon transition-transform transform text-lg" />
+            <IoIosArrowDown className="down-arrow-icon transition-transform transform text-lg duration-500" />
           </span>
           <ul className="absolute top-0 w-max bg-base-100 p-4 transition-all duration-500 ease-in-out  flex flex-col gap-3 rounded-b-lg shadow-xl ">
             <li>

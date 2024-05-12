@@ -53,12 +53,13 @@ const Hero = () => {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 1,
-    speed: 500,
+    speed: 1500,
+    autoplaySpeed:6000
   };
 
   return (
-    <section className="container mx-auto px-4">
-      <button onClick={handlePrev} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle absolute left-12 border-base-100 border-4 z-40 top-1/3 ">
+    <section className="relative">
+      <button onClick={handlePrev} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle -left-4 lg:-left-7 border-base-100 border-4 z-40 top-[40%] absolute">
 
       <MdOutlineKeyboardArrowLeft className="text-2xl"/>
       </button>
@@ -85,7 +86,8 @@ const Hero = () => {
         
         ))}
       </Slider>
-      <button onClick={handleNext} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle  absolute right-12 border-base-100 border-4 z-40 top-1/3 ">
+
+      <button onClick={handleNext} className="btn hover:border-4 hover:border-base-100 lg:btn-lg btn-circle  absolute -right-4 lg:-right-7 border-base-100 border-4 z-40 top-[40%]">
       <MdOutlineKeyboardArrowRight className="text-2xl"/>
       </button>
     </section>

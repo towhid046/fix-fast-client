@@ -61,7 +61,10 @@ const AllServicesPage = () => {
   return (
     <section className="mb-12">
       <DynamicHelmet title="Services" />
-      <SectionHeader />
+      <SectionHeader 
+      title="Explore All Services"
+      description="Explore a comprehensive array of services catering to all your electronics needs. From repairs to customizations, find everything under one roof!"
+      />
       <div className="my-8">
         <form onSubmit={handleSearchService} className="w-full">
           <label className="input input-bordered max-w-md flex mx-auto items-center gap-2">
