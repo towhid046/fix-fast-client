@@ -7,12 +7,13 @@ import { toast } from "react-toastify";
 import { UserContext } from "../../providers/AuthProvider/AuthProvider";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, setLoading } = useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-    const location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,8 +44,8 @@ const Login = () => {
       await logInWithGoogle();
       swal("Login Success", "You have login successfully", "success");
       navigate(location?.state ? location.state : "/");
-    } catch (error) {
-      swal("ERROR", `${error?.message}`, "error");
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -54,20 +55,34 @@ const Login = () => {
 
   return (
     <div>
-      <DynamicHelmet title="Login"/>
+      <DynamicHelmet title="Login" />
+      <SectionHeader title="Log In Your account" 
+      description="Sign in to Your Account: Access Your Profile and Services"
+      />
 
-      <div className="hero md:min-h-screen container-fluid pt-12 pb-8 mb-12">
+      <div className="hero  container-fluid  pb-8 mb-12">
         <div className="w-full px-4">
           <div
-            className={`max-w-xl border  bg-base-100 mx-auto md:p-12 py-8 px-6 border-gray-700"
+            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-8 px-6 border-gray-700"
               }`}
           >
-            <h1 className="text-2xl font-bold text-center mb-8">
-              Login your account
-            </h1>
-            <hr />
-            <form onSubmit={handelLoginForm} className="mt-5 text-black">
+            <div className="text-center">
+              <div className="flex justify-center gap-5 mb-3">
+                <button
+                  onClick={handelLogInWithGoogle}
+                  className="btn flex items-center gap-2  "
+                >
+                  <img className="w-5" src={googleLogo} alt="Google" />
+                  <span>Sign In With Google</span>
+                </button>
+              </div>
+              <div>
+                <em className="text-2xl">Or</em>
+                <p>Log In with Email</p>
+              </div>
+            </div>
 
+            <form onSubmit={handelLoginForm} className="mt-5 text-black">
               <div>
                 <label className="label">
                   <strong className="label-text">Email address</strong>
@@ -76,7 +91,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="focus:  input w-full   bg-[#f3f3f3]"
+                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
                   required
                 />
               </div>
@@ -89,7 +104,7 @@ const Login = () => {
                   type={isShowPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="focus:  w-full input  bg-[#f3f3f3]"
+                  className="input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content"
                   required
                 />
 
@@ -114,33 +129,17 @@ const Login = () => {
               </div>
 
               <div className="form-control my-5">
-                <button className="btn w-full   font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+                <button className="btn w-full   font-bold btn-error text-base-100">
                   Log in
                 </button>
               </div>
-
             </form>
 
-            <div>
-              <div className="text-center mb-4">
-                <h2 className="text-2xl">Or</h2>
-                <p>Log In with</p>
-              </div>
-              <div className="flex justify-center gap-5">
-                <button
-                  onClick={handelLogInWithGoogle}
-                  className="btn flex items-center gap-2  "
-                >
-                  <img className="w-8" src={googleLogo} alt="Google" />
-                  <span> Google</span>
-                </button>
-              </div>
-            </div>
             <p className="text-center mt-5">
               Don`t have an account?{" "}
               <Link
                 to={"/register"}
-                className=" cursor-pointer text-[#AB7442] font-semibold"
+                className=" cursor-pointer italic link link-success font-semibold"
               >
                 Register
               </Link>

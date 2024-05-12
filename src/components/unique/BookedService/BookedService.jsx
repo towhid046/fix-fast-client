@@ -21,12 +21,23 @@ const BookedService = ({ service }) => {
       <div className="card-body">
         <h2 className="card-title text-3xl font-bold">{service_name}</h2>
         <strong>Price: {price}</strong>
-        <strong className="text-success">Status: {serviceStatus}</strong>
+        <p>
+          <em>Status : </em>
+        <strong
+          className={`
+        ${serviceStatus === "Pending" && "text-error"}
+        ${serviceStatus === "Working" && "text-info"}
+        ${serviceStatus === "Complete" && "text-success"}
+        `}
+        >
+           {serviceStatus}
+        </strong>
+        </p>
         <p>Provider Name: {provider_name}</p>
         <p>Provider Email: {provider_email}</p>
         <div className="card-actions justify-end">
           <Link to={`/service-details/${service_id}`}>
-            <button className="btn btn-info">View Details</button>
+            <button className="btn text-gray-200 btn-outline">View Details</button>
           </Link>
         </div>
       </div>

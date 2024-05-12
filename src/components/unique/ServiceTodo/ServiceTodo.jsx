@@ -45,7 +45,7 @@ const ServiceTodo = ({ service }) => {
             />
           </figure>
           <div className=" space-y-1 flex-1">
-            <h2 className="font-bold text-3xl ">{service_name}</h2>
+            <h2 className="font-bold text-2xl ">{service_name}</h2>
             <p>
               <strong>Price: {price}</strong>
             </p>
@@ -60,7 +60,7 @@ const ServiceTodo = ({ service }) => {
               <p>Location: {special_instruction}</p>
             </div>
             <div className="border-t pt-2">
-              <h2 className="text-lg font-bold mb-3">Service Status</h2>
+              <h2 className="text-lg font-bold mb-3">Update Your Service Status</h2>
               <select
                 onChange={handleServiceStatus}
                 className="select select-bordered w-full max-w-xs"

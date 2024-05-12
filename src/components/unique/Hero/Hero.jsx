@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -53,8 +54,8 @@ const Hero = () => {
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 1,
-    speed: 1500,
-    autoplaySpeed:6000
+    speed: 1000,
+    autoplaySpeed:5000
   };
 
   return (
@@ -76,9 +77,9 @@ const Hero = () => {
               <div className="max-w-xl text-center mx-auto p-8 rounded-lg">
                 <h2 className="font-bold text-4xl mb-4">{slide.title}</h2>
                 <p className="mb-3">{slide.description}</p>
-                <a href="#explore-now">
-                  <button className="btn btn-outline btn-error text-base-100">Explore Now</button>
-                </a>
+                <Link to='/all-services'>
+                  <button className="btn btn-outline btn-error text-base-100">Explore More</button>
+                </Link>
               </div>
             </div>
           </div>

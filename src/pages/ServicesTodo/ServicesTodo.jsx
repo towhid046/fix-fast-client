@@ -61,7 +61,9 @@ const ServicesTodo = () => {
     <section className="pb-16">
       <DynamicHelmet title="Manage Services" />
 
-      <SectionHeader title="Services Todo" />
+      <SectionHeader title="Services Todo" 
+      description={`"Stay on Task: Manage Your Pending Service Requests Effortlessly"`}
+      />
       <div className="flex flex-col gap-5">
         {services.map((service, index) => (
           <ServiceTodo key={service._id} service={service} index={index + 1} />

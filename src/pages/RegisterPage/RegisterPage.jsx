@@ -5,6 +5,7 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import SectionHeader from './../../components/shared/SectionHeader/SectionHeader';
 
 const RegisterPage = () => {
   const { createUser, updateUserProfile, setLoading } = useContext(UserContext);
@@ -85,15 +86,15 @@ const RegisterPage = () => {
   return (
     <div>
       <DynamicHelmet title="Register"/>
-      <div className=" md:min-h-screen container-fluid pt-12 mb-16">
+      <SectionHeader
+      title="Register Your Account"
+      description={`Join Our Community: Register and Unlock Access to Exclusive Services`}
+      />
+      <div className="mb-16">
         <div className="w-full px-4">
           <div
-            className={`max-w-xl bg-base-100 mx-auto md:p-12 py-8 px-6 border`}
+            className={`max-w-xl bg-base-100 mx-auto md:p-12 py-8 px-6 border rounded-lg`}
           >
-            <h1 className="text-2xl font-bold text-center mb-8">
-              Register your account
-            </h1>
-            <hr />
             <form onSubmit={handelRegisterForm} className="mt-5 text-black">
               {/* Name input */}
               <div>
@@ -104,7 +105,7 @@ const RegisterPage = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  className="focus:  input w-full bg-[#f3f3f3]"
+                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
                   required
                 />
               </div>
@@ -118,7 +119,7 @@ const RegisterPage = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="focus:  input w-full     bg-[#f3f3f3]"
+                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
                   required
                 />
               </div>
@@ -132,7 +133,7 @@ const RegisterPage = () => {
                   type={isShowPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="focus:  w-full input     bg-[#f3f3f3]"
+                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
                   required
                 />
 
@@ -166,7 +167,7 @@ const RegisterPage = () => {
                   type="text"
                   name="imgurl"
                   placeholder="Enter your photo url"
-                  className="focus:  input w-full     bg-[#f3f3f3]"
+                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
                   required
                 />
               </div>
@@ -185,7 +186,7 @@ const RegisterPage = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn w-full   font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+                <button className="btn w-full   font-bold btn-success text-base-100">
                   Register
                 </button>
               </div>
@@ -195,7 +196,7 @@ const RegisterPage = () => {
               Already have an account?{" "}
               <Link
                 to={"/login"}
-                className=" cursor-pointer text-[#AB7442] font-semibold"
+                className=" cursor-pointer link link-error italic font-semibold"
               >
                 Login
               </Link>

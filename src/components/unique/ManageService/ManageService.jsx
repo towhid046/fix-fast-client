@@ -41,6 +41,6 @@ const ManageService = ({ index, service, handleDeleteService }) => {
 ManageService.propTypes = {
   service: PropTypes.object.isRequired,
   handleDeleteService: PropTypes.func.isRequired,
-  index: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 export default ManageService;

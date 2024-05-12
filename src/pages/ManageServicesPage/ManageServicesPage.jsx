@@ -90,7 +90,10 @@ const ManageServicesPage = () => {
   return (
     <section className="pb-16">
       <DynamicHelmet title="Manage Services" />
-      <SectionHeader />
+      <SectionHeader
+        title="Manage your services"
+        description={`"Efficiently oversee your services: view, update, or delete listings as a provider. Streamline your offerings effortlessly for optimal efficiency."`}
+      />
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
