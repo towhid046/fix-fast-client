@@ -3,6 +3,9 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import { useEffect } from "react";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { IoMdMail } from "react-icons/io";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -23,11 +26,15 @@ const ServiceDetails = () => {
 
   return (
     <section className="mb-16">
-      <DynamicHelmet title="Service Details"/>
-      <SectionHeader />
+      <DynamicHelmet title="Service Details" />
+      <SectionHeader
+        title={service_name + " Details"}
+        description={`Discover the details of our ${service_name} service, available in ${service_area}. Priced at ${price}, this offering ensures top-notch quality and expertise to meet your needs.
+      `}
+      />
       <div className="p-5 rounded-lg border">
         <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6 mb-10">
-          <figure className="flex-1">
+          <figure className="flex-1 overflow-hidden rounded-lg ">
             <img
               src={image_url}
               className="rounded-lg w-full"
@@ -35,32 +42,50 @@ const ServiceDetails = () => {
             />
           </figure>
           <div className=" space-y-3 flex-1">
-            <h2 className="font-bold text-3xl">{service_name}</h2>
-            <p>
-              <strong>Price: {price}</strong>
-            </p>
-            <strong>Service Area: {service_area}</strong>
+            <div>
+              <h2 className="font-bold text-2xl mb-3">{service_name}</h2>
+              <p className="flex items-center gap-2 mb-1">
+                <HiOutlineCurrencyDollar className="text-xl text-error" />
+                <strong>
+                  <em>${price}</em>
+                </strong>
+              </p>
+              <p className="flex items-center gap-2">
+                <MdOutlineLocationOn className="text-xl text-error" />
+                <strong>
+                  <em>{service_area}</em>
+                </strong>
+              </p>
+            </div>
             <p>
               <em>Description: </em>
-              {description.split(" ").slice(0, 100).join(" ")}
+              {description.split(" ").slice(0, 70).join(" ")}.
             </p>
             <div>
               <Link to={`/booking/${_id}`}>
-                <button className=" btn btn-info w-full ">Book Now</button>
+                <button className=" btn btn-error text-base-100 w-full ">
+                  Book Now
+                </button>
               </Link>
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center space-y-3 flex-auto">
-          <h2 className="text-xl text-gray-400 font-semibold mb-5">
-            Service Provider Info
+        <div className="flex flex-col items-center space-y-3 flex-auto">
+          <h2 className="text-xl italic  font-bold my-5  border-b pb-3 w-full lg:border-0 text-center">
+            Service Provider
           </h2>
           <figure>
-            <img className="rounded-full w-24 h-24" src={photo} alt="" />
+            <img className="rounded-full w-28 h-28" src={photo} alt="" />
           </figure>
-          <h2 className="text-xl font-bold">Name: {name}</h2>
-          <p>Email: {email}</p>
-          <p>Location: {service_area}</p>
+          <h2 className="text-lg font-semibold">Name: {name}</h2>
+          <p className="flex items-center gap-2">
+            <IoMdMail className="text-xl text-error" />
+            {email}
+          </p>
+          <p className="flex items-center gap-2">
+            <MdOutlineLocationOn className="text-xl text-error" />
+            {service_area}
+          </p>{" "}
         </div>
       </div>
     </section>

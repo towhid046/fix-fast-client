@@ -57,7 +57,7 @@ const AddService = () => {
         type={data.type || "text"}
         name={data.title.toLowerCase()}
         placeholder={`Enter ${data.title.toLowerCase()}`}
-        className={`input bg-gray-100 w-full`}
+        className={`input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content`}
         required
       />
     </div>
@@ -66,7 +66,9 @@ const AddService = () => {
   return (
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Add Service" />
-      <SectionHeader title="Add A Service" />
+      <SectionHeader title="Add A New Service"
+      description="Enhance your service portfolio by seamlessly adding a new offering as a service provider. Expand your reach and cater to a broader audience with our user-friendly platform"
+      />
       <div
         className={
           " border text-black rounded-lg lg:px-20 md:px-12 px-4 py-12 my-12"
@@ -83,13 +85,14 @@ const AddService = () => {
                 <textarea
                   placeholder="Enter service description"
                   name="description"
-                  className="textarea textarea-bordered textarea-md w-full text-md bg-gray-100"
+                  rows={7}
+                  className="textarea textarea-bordered textarea-md bg-base-200 text-base-content w-full focus:outline-none border-base-200 border-2 focus:border-neutral-content"
                 ></textarea>
               </div>
             </div>
 
             <div>
-              <button className="btn w-full font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+              <button className="btn w-full font-bold btn-error text-base-100">
                 Add Service
               </button>
             </div>

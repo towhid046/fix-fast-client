@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const BookedService = ({ service }) => {
   const {
@@ -31,6 +32,10 @@ const BookedService = ({ service }) => {
       </div>
     </div>
   );
+};
+
+BookedService.propTypes = {
+  service: PropTypes.object.isRequired,
 };
 
 export default BookedService;

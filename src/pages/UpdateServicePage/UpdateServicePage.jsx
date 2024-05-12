@@ -69,7 +69,7 @@ const UpdateServicePage = () => {
         defaultValue={data.defVal}
         name={data.title.toLowerCase()}
         placeholder={`Enter ${data.title.toLowerCase()}`}
-        className={`input bg-gray-100 w-full`}
+        className={`input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content`}
         required
       />
     </div>
@@ -78,7 +78,10 @@ const UpdateServicePage = () => {
   return (
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Update Service" />
-      <SectionHeader title="Update Service" />
+      <SectionHeader
+        title={`Update The ${service_name}`}
+        description="Stay up-to-date with your offerings! Easily modify and refine your added services as a provider. Keep your listings fresh and aligned with your evolving expertise."
+      />
       <div
         className={
           " border text-black rounded-lg lg:px-20 md:px-12 px-4 py-12 my-12"
@@ -97,13 +100,13 @@ const UpdateServicePage = () => {
                   name="description"
                   defaultValue={description}
                   rows={7}
-                  className="textarea textarea-bordered textarea-md w-full text-md bg-gray-100"
+                  className="textarea textarea-bordered textarea-md bg-base-200 text-base-content w-full focus:outline-none border-base-200 border-2 focus:border-neutral-content"
                 ></textarea>
               </div>
             </div>
 
             <div>
-              <button className="btn w-full font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+              <button className="btn w-full font-bold btn-success text-base-100">
                 Update Service
               </button>
             </div>

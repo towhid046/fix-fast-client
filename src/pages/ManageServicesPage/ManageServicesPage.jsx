@@ -94,7 +94,7 @@ const ManageServicesPage = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead className="bg-black text-white ">
+          <thead className="bg-neutral text-neutral-content ">
             <tr className="text-center">
               <th>SN.</th>
               <th>Service Name</th>

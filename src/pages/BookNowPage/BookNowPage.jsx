@@ -72,7 +72,7 @@ const BookNowPage = () => {
         type={data.type || "text"}
         name={data.title.toLowerCase()}
         placeholder={`Enter ${data.title.toLowerCase()}`}
-        className={`input bg-gray-100 w-full`}
+        className={`input bg-base-200 text-base-content focus:outline-none border-2 focus:border-2 focus:border-neutral-content w-full`}
         required
       />
     </div>
@@ -80,8 +80,12 @@ const BookNowPage = () => {
 
   return (
     <section className="container mx-auto px-2 pb-24">
-      <DynamicHelmet title="Book Now"/>
-      <SectionHeader title="Booking A Service" />
+      <DynamicHelmet title="Book Now" />
+      <SectionHeader
+        title={`Booking The ${service_name} Service`}
+        description={`Welcome to our booking service page! Select your desired ${service_name} package for your location in ${service_area}. Reserve now for just ${price} and secure your appointment with our expert team!
+      `}
+      />
       <div
         className={
           " border text-black rounded-lg lg:px-20 md:px-12 px-4 py-12 my-12"
@@ -99,7 +103,7 @@ const BookNowPage = () => {
                 <input
                   name="date"
                   type="date"
-                  className={`input bg-gray-100 w-full`}
+                  className={`input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content`}
                   required
                 />
               </div>
@@ -114,14 +118,14 @@ const BookNowPage = () => {
                   type="text"
                   name="special_instruction"
                   placeholder="Enter your location in details"
-                  className={`input bg-gray-100 w-full`}
+                  className={`input w-full focus:outline-none border-2 focus:border-neutral-content bg-base-200 text-base-content`}
                   required
                 />
               </div>
             </div>
 
             <div>
-              <button className="btn w-full font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+              <button className="btn w-full font-bold btn-error text-base-100">
                 Purchase
               </button>
             </div>

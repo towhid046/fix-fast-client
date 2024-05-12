@@ -1,9 +1,9 @@
 import axios from "axios";
-import SingleService from "../../components/unique/SingleService/SingleService";
 import SectionHeader from "../../components/shared/SectionHeader/SectionHeader";
 import { useEffect, useState } from "react";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet";
+import ServiceCard from "../../components/unique/ServiceCard/ServiceCard";
 
 const AllServicesPage = () => {
   const [searchText, setSearchText] = useState("");
@@ -94,7 +94,7 @@ const AllServicesPage = () => {
       </div>
       <div className="flex flex-col gap-6">
         {services?.map((service) => (
-          <SingleService key={service._id} service={service} />
+          <ServiceCard key={service._id} service={service} />
         ))}
       </div>
       {services.length <= 0 && (
