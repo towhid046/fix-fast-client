@@ -81,7 +81,7 @@ const ManageServicesPage = () => {
           Your don`t have added any service yet
         </h2>
         <Link to="/add-service">
-          <button className="btn btn-info btn-sm">Add Service</button>
+          <button className="btn btn-error btn-outline btn-sm">Add Service</button>
         </Link>
       </div>
     );

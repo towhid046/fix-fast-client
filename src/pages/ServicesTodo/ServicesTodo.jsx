@@ -51,7 +51,7 @@ const ServicesTodo = () => {
           Your service to do is empty now. To get service order
         </h2>
         <Link to="/add-service">
-          <button className="btn btn-info btn-sm">Add Service</button>
+          <button className="btn btn-error btn-outline btn-sm">Add Service</button>
         </Link>
       </div>
     );

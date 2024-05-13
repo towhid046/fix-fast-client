@@ -37,9 +37,11 @@ const Footer = () => {
         <div className="footer container border-b mx-auto px-4 p-10 text-neutral-content">
           <div className="max-w-xs">
           <div>
-            <Link to={"/"} className="flex items-center gap-2">
-              <HiOutlineWrenchScrewdriver className="text-3xl" />
-              <h2 className="text-3xl font-bold">FixFast</h2>
+          <Link to={"/"} className="flex items-center gap-2">
+              <HiOutlineWrenchScrewdriver className="text-3xl text-[#dd3333]" />
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#dd3333] to-neutral inline-block text-transparent bg-clip-text">
+                FixFast
+              </h2>
             </Link>
           </div>
             <p>

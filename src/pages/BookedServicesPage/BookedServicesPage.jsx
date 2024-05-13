@@ -54,7 +54,7 @@ const BookedServicesPage = () => {
           Your don`t have booked any service yet!
         </h2>
         <Link to="/all-services">
-          <button className="btn btn-info btn-sm">See all services</button>
+          <button className="btn btn-error btn-outline btn-sm">See all services</button>
         </Link>
       </div>
     );
