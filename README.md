@@ -1,4 +1,4 @@
-## Website Name: FixFast (Client)
+# Website Name: FixFast (Client)
 ### Live Link: https://fix-fast-63d93.web.app
 #### This is a simple service-sharing web application. It is focused on Electronic Item Repairing Services
 
