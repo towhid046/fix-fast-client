@@ -4,12 +4,13 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const BookNowPage = () => {
   const service = useLoaderData();
   const { user } = useAuth();
+  const navigate = useNavigate()
 
   useEffect(() => {
     scrollToTop();
@@ -56,6 +57,7 @@ const BookNowPage = () => {
         serviceBookedInfo
       );
       swal("Success", "Your service is pending now", "success");
+      navigate(`/booked-services`)
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
     }
