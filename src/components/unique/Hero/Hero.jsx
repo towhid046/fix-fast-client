@@ -8,7 +8,6 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import slides from "./slideData.js";
-import { Typewriter } from "react-simple-typewriter";
 import { Slide } from "react-awesome-reveal";
 
 const Hero = () => {
@@ -53,27 +52,18 @@ const Hero = () => {
               <div className="absolute inset-0 bg-black opacity-50"></div>
               <div className="relative z-10 flex flex-col justify-center items-center text-white">
                 <div className="max-w-xl text-center mx-auto p-8 rounded-lg">
-                  <h2 className="font-bold md:text-3xl text-2xl md:mb-4 mb-2">
-                    <Typewriter
-                      words={[slide.title]}
-                      loop={false}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </h2>
                   <Slide direction="up">
-                  <p className="mb-3 text-md">{slide.description}</p>
+                    <h2 className="font-bold md:text-3xl text-2xl md:mb-4 mb-2">
+                      {slide.title}
+                    </h2>
+                    <p className="mb-3 text-md">{slide.description}</p>
 
-                  <Link to="/all-services">
-                    <button className="btn btn-outline btn-error text-base-100">
-                      Explore More
-                    </button>
-                  </Link>
+                    <Link to="/all-services">
+                      <button className="btn btn-outline btn-error text-base-100">
+                        Explore More
+                      </button>
+                    </Link>
                   </Slide>
-
                 </div>
               </div>
             </div>

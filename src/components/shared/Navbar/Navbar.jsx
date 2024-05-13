@@ -10,6 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { LuMenu } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(false);
@@ -128,8 +129,8 @@ const Navbar = () => {
 
           <div className="ml-4 lg:ml-0">
             <Link to={"/"} className="flex items-center gap-2">
-              <HiOutlineWrenchScrewdriver className="text-3xl text-[#dd3333]" />
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#dd3333] to-neutral inline-block text-transparent bg-clip-text">
+              <HiOutlineWrenchScrewdriver className="text-3xl text-[#dd3333] hidden md:flex" />
+              <h2 className="text-3xl font-extrabold bg-gradient-to-r from-[#dd3333] to-neutral inline-block text-transparent bg-clip-text">
                 FixFast
               </h2>
             </Link>
@@ -146,7 +147,8 @@ const Navbar = () => {
           <div className="mt-2">
             <button
               className="text-[26px] tooltip tooltip-left"
-              data-tip={`${theme ? "Light Theme" : "Dark Theme"}`}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={`${theme ? "Light Theme" : "Dark Theme"}`}
               onClick={handleThemeController}
             >
               {theme ? <MdOutlineLightMode /> : <MdDarkMode />}
@@ -161,7 +163,11 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img title={user?.displayName} src={user?.photoURL} />
+                  <img
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={user?.displayName}
+                    src={user?.photoURL}
+                  />
                 </div>
               </div>
               <ul
@@ -187,7 +193,8 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="text-2xl tooltip tooltip-left"
-                data-tip="Login"
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Login"
               >
                 <FiUserPlus />
               </Link>
@@ -195,6 +202,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </nav>
   );
 };

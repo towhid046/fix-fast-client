@@ -62,12 +62,14 @@ const AllServicesPage = () => {
   const handlePrevBtn = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      scrollToTop();
     }
   };
 
   const handleNextBtn = () => {
     if (currentPage < totalNumberOfPages) {
       setCurrentPage(currentPage + 1);
+      scrollToTop();
     }
   };
 

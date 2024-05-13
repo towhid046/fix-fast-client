@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body{
-    overflow-x:hidden ;
+    overflow-x:hidden;
 }
 /* nave bar menu custom style */
 .main-manu li ul{
