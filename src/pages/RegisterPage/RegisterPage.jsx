@@ -6,6 +6,7 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
+import { Slide } from "react-awesome-reveal";
 
 const RegisterPage = () => {
   const { createUser, updateUserProfile, setLoading } = useContext(UserContext);
@@ -91,7 +92,8 @@ const RegisterPage = () => {
         title="Register Your Account"
         description={`Join Our Community: Register and Unlock Access to Exclusive Services`}
       />
-      <div className="mb-16">
+     <Slide direction="down">
+     <div className="mb-16">
         <div className="w-full">
           <div
             className={`max-w-xl bg-base-100 mx-auto md:p-12 py-5 px-4 border rounded-lg`}
@@ -205,6 +207,7 @@ const RegisterPage = () => {
           </div>
         </div>
       </div>
+     </Slide>
     </div>
   );
 };

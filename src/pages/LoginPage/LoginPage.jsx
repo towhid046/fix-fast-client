@@ -8,6 +8,7 @@ import { UserContext } from "../../providers/AuthProvider/AuthProvider";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
+import { Slide } from "react-awesome-reveal";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, setLoading } = useContext(UserContext);
@@ -61,6 +62,7 @@ const Login = () => {
         description="Sign in to Your Account: Access Your Profile and Services"
       />
 
+      <Slide direction="down">
       <div className="hero  pb-8 mb-12">
         <div className="w-full">
           <div
@@ -148,6 +150,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </Slide>
     </div>
   );
 };
