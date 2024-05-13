@@ -21,7 +21,7 @@ const ServiceDetails = () => {
     price,
     service_area,
     description,
-    provider_info: { name, email, photo },
+    provider_info: { name, email, photo, rating },
   } = service;
 
   return (
@@ -79,6 +79,7 @@ const ServiceDetails = () => {
             <img className="rounded-full w-28 h-28" src={photo} alt="" />
           </figure>
           <h2 className="text-lg font-semibold">Name: {name}</h2>
+          <p>Rating: {rating}</p>
           <p className="flex items-center gap-2">
             <IoMdMail className="text-xl text-error" />
             {email}

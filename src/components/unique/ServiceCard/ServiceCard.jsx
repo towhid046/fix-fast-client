@@ -11,8 +11,7 @@ const ServiceCard = ({ service }) => {
     price,
     service_area,
     description,
-    rating,
-    provider_info: { name, email, photo },
+    provider_info: { name, email, photo, rating },
   } = service;
 
   return (
