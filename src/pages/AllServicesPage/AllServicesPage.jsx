@@ -17,7 +17,7 @@ const AllServicesPage = () => {
   const { count } = useLoaderData();
   const [currentPage, setCurrentPage] = useState(1);
   const totalServices = count;
-  const perPageService = 2;
+  const perPageService = 6;
   const totalNumberOfPages = Math.ceil(totalServices / perPageService);
   const pageNumbers = [...Array(totalNumberOfPages).keys()];
 

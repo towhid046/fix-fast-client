@@ -11,6 +11,7 @@ const ServiceCard = ({ service }) => {
     price,
     service_area,
     description,
+    rating,
     provider_info: { name, email, photo },
   } = service;
 
@@ -65,7 +66,7 @@ const ServiceCard = ({ service }) => {
         <div className="space-y-1 text-center">
           <h2 className="text-lg font-semibold">Name: {name}</h2>
           <p>
-            <>Rating: {Math.round(Math.random() * 5)}</>
+            <>Rating: {rating}</>
           </p>
         </div>
       </div>
