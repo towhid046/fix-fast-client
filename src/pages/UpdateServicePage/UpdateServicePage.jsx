@@ -4,10 +4,11 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet";
 
 const UpdateServicePage = () => {
+  const navigate = useNavigate()
   const service = useLoaderData();
   const { user } = useAuth();
 
@@ -54,6 +55,7 @@ const UpdateServicePage = () => {
         "Your service has been updated successfully",
         "success"
       );
+      navigate('/manage-services')
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
     }

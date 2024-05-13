@@ -5,8 +5,10 @@ import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet
 import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddService = () => {
+  const navigate = useNavigate()
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -43,6 +45,7 @@ const AddService = () => {
         serviceInfo
       );
       swal("Added Service", "Your service has been added", "success");
+      navigate('/manage-services')
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
     }
