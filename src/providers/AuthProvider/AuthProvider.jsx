@@ -9,6 +9,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { auth, googleProvider } from "../../firebase/firebase.config";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 export const UserContext = createContext(null);
 
@@ -31,6 +32,15 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOutUser = () => {
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/logout`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
     setLoading(false);
     return signOut(auth);
   };
@@ -45,6 +55,18 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+
+      if (currentUser) {
+        const loggedUser = currentUser?.email;
+        axios
+          .post(`${import.meta.env.VITE_API_URL}/jwt`, { loggedUser })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     });
     return () => unSubscribe();
   }, []);

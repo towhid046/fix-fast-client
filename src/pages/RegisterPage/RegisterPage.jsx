@@ -52,6 +52,7 @@ const RegisterPage = () => {
       await updateUserProfile(userName, photoUrl);
       setLoading(false);
     } catch (err) {
+
       swal("Error", `${err?.message}`, "error");
       navigate("/login");
       setLoading(false);
