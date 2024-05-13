@@ -4,6 +4,7 @@ import SectionHeader from "../../components/shared/SectionHeader/SectionHeader";
 import { useEffect } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { HiMiniArrowUpLeft } from "react-icons/hi2";
+import { Slide } from "react-awesome-reveal";
 
 const NewsDetails = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const NewsDetails = () => {
         title={title}
         description={description?.split(" ").splice(0, 15).join(" ")}
       />
+      <Slide direction="down">
       <div className="max-w-3xl mx-auto">
       <div className="mb-5 flex">
       <Link to={"/all-news"} className="flex justify-center">
@@ -69,6 +71,7 @@ const NewsDetails = () => {
           </div>
         </div>
       </div>
+      </Slide>
     </section>
   );
 };
