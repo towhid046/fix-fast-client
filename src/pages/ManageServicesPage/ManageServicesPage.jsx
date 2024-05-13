@@ -27,7 +27,7 @@ const ManageServicesPage = () => {
     queryKey: ["user-services"],
     queryFn: async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/user-services?email=${user?.email}`
+        `${import.meta.env.VITE_API_URL}/user-services?email=${user?.email}`, {withCredentials: true}
       );
 
       return res.data;
