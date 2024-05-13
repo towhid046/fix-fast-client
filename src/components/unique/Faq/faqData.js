@@ -1,53 +1,53 @@
 const faqs = [
+  const faqs = [
     {
       id: 1,
-      question: "What makes jute and wooden crafts unique?",
+      question: "What makes electronic gadgets unique?",
       answer:
-        "Jute and wooden crafts are unique due to their natural materials and artisanal craftsmanship. Jute offers eco-friendly options with its sustainability, while wood provides timeless elegance and durability.",
+        "Electronic gadgets are unique due to their cutting-edge technology and innovative design. They offer convenience, functionality, and entertainment, making them essential companions in modern life.",
     },
     {
       id: 2,
-      question: "Are the jute and wooden products environmentally friendly?",
+      question: "Are the electronic gadgets environmentally friendly?",
       answer:
-        "Yes, our jute and wooden products are eco-friendly. Jute is a sustainable fiber, and our wooden products are often sourced from responsibly managed forests, ensuring minimal environmental impact.",
+        "Yes, many of our electronic gadgets are designed with sustainability in mind. We prioritize energy efficiency, recyclability, and responsible manufacturing practices to minimize our environmental footprint.",
     },
     {
       id: 3,
-      question: "How can I maintain my jute and wooden crafts?",
+      question: "How can I maintain my electronic gadgets?",
       answer:
-        "To maintain your jute and wooden crafts, keep them away from direct sunlight and moisture. For wooden items, periodic polishing with natural oils helps preserve their luster. For jute products, spot cleaning with a damp cloth is recommended.",
+        "To maintain your electronic gadgets, keep them clean and free from dust and debris. Use appropriate cleaning tools and materials recommended by the manufacturer. Avoid exposing them to extreme temperatures or moisture, and handle them with care to prevent damage.",
     },
     {
       id: 4,
-      question:
-        "Can I customize jute and wooden products according to my preferences?",
+      question: "Can I customize electronic gadgets according to my preferences?",
       answer:
-        "Yes, we offer customization options for many of our jute and wooden products. Contact our customer service team to discuss your preferences and create a personalized piece that suits your needs.",
+        "While customization options may vary depending on the product, some electronic gadgets offer personalization features such as customizable settings, interchangeable accessories, and software modifications. Check product descriptions or contact us for more information on customization options.",
     },
     {
       id: 5,
-      question: "Are your jute and wooden products suitable for outdoor use?",
+      question: "Are your electronic gadgets suitable for outdoor use?",
       answer:
-        "While some of our wooden products are treated for outdoor use, most jute items are best suited for indoor environments. For specific outdoor applications, please check product descriptions or contact us for recommendations.",
+        "Most electronic gadgets are designed for indoor use, as they may not be resistant to outdoor elements such as moisture, extreme temperatures, and dust. However, some gadgets are specifically built for outdoor use, so check product specifications or contact us for recommendations on outdoor-friendly gadgets.",
     },
     {
       id: 6,
-      question: "Do you ship internationally?",
+      question: "Do you offer international shipping?",
       answer:
-        "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
+        "Yes, we offer international shipping for our electronic gadgets. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
     },
     {
       id: 7,
-      question: "Do you ship internationally?",
+      question: "What payment methods do you accept?",
       answer:
-        "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
+        "We accept various payment methods including credit cards, debit cards, PayPal, and bank transfers. Choose the option that is most convenient for you during checkout.",
     },
     {
       id: 8,
-      question: "Do you ship internationally?",
+      question: "What is your return policy?",
       answer:
-        "Yes, we offer international shipping for our jute and wooden products. Shipping rates and delivery times vary depending on the destination. Please refer to our shipping policy or contact us for more information.",
+        "We have a flexible return policy that allows you to return electronic gadgets within a specified period for a refund or exchange. Please refer to our return policy for detailed information on eligibility criteria and procedures.",
     },
-  
   ];
+  
   export default faqs;
