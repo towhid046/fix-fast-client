@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet";
 import ServiceCard from "../../components/unique/ServiceCard/ServiceCard";
+import { useLoaderData } from "react-router-dom";
+import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 
 const AllServicesPage = () => {
   const [searchText, setSearchText] = useState("");
@@ -11,15 +13,25 @@ const AllServicesPage = () => {
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    scrollToTop();
-  }, []);
+  // pagination related variables:
+  const { count } = useLoaderData();
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalServices = count;
+  const perPageService = 2;
+  const totalNumberOfPages = Math.ceil(totalServices / perPageService);
+  const pageNumbers = [...Array(totalNumberOfPages).keys()];
+
+  // useEffect(() => {
+  //   scrollToTop();
+  // }, []);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/services?search=${searchText}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/services?search=${searchText}&totalPerPage=${perPageService}&currentPage=${currentPage}`
         );
         setServices(res.data);
       } catch (error) {
@@ -29,7 +41,7 @@ const AllServicesPage = () => {
       }
     };
     getData();
-  }, [searchText]);
+  }, [searchText, currentPage]);
 
   const handleSearchService = (e) => {
     e.preventDefault();
@@ -39,7 +51,24 @@ const AllServicesPage = () => {
 
   const handleSearchOnChange = (e) => {
     const searchVal = e.target.value;
-      setSearchText(searchVal);
+    setSearchText(searchVal);
+  };
+
+  const handleGetCurrentPage = (currPage) => {
+    setCurrentPage(currPage);
+    setSearchText("");
+  };
+
+  const handlePrevBtn = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextBtn = () => {
+    if (currentPage < totalNumberOfPages) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   if (isError) {
@@ -61,9 +90,9 @@ const AllServicesPage = () => {
   return (
     <section className="mb-16">
       <DynamicHelmet title="Services" />
-      <SectionHeader 
-      title="Explore All Services"
-      description="Explore a comprehensive array of services catering to all your electronics needs. From repairs to customizations, find everything under one roof!"
+      <SectionHeader
+        title="Explore All Services"
+        description="Explore a comprehensive array of services catering to all your electronics needs. From repairs to customizations, find everything under one roof!"
       />
       <div className="mb-10">
         <form onSubmit={handleSearchService} className="w-full">
@@ -103,6 +132,38 @@ const AllServicesPage = () => {
           Sorry, No service have match in your search!
         </h2>
       )}
+
+      <div className={`flex justify-center py-8 ${searchText && "hidden"}`}>
+        <ul className="flex gap-2 items-center flex-wrap">
+          <button
+            onClick={handlePrevBtn}
+            disabled={currentPage === 1}
+            className="flex items-center btn-error btn-outline rounded-[33px] px-8 btn mr-4"
+          >
+            <FaArrowLeftLong />
+            Prev
+          </button>
+          {pageNumbers?.map((number, index) => (
+            <button
+              onClick={() => handleGetCurrentPage(index + 1)}
+              className={`btn btn-circle ${
+                currentPage === number + 1 ? "btn-error text-base-100" : ""
+              }`}
+              key={number}
+            >
+              {number + 1}
+            </button>
+          ))}
+          <button
+            onClick={handleNextBtn}
+            disabled={currentPage === totalNumberOfPages}
+            className="flex items-center btn-outline btn-error rounded-[33px] px-8 btn ml-4"
+          >
+            Next
+            <FaArrowRightLong />
+          </button>
+        </ul>
+      </div>
     </section>
   );
 };
