@@ -5,6 +5,8 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { Slide } from "react-awesome-reveal";
+
 
 const PopularServices = () => {
   useEffect(() => {
@@ -55,7 +57,8 @@ const PopularServices = () => {
           <ServiceCard key={service._id} service={service} />
         ))}
       </div>
-     <div className="flex justify-center my-7">
+        <Slide direction="up">
+        <div className="flex justify-center my-7">
      <Link to={"/all-services"} >
         <button className="rounded-full md:px-12 px-5 btn btn-outline btn-error ">
           View All Services
@@ -63,6 +66,7 @@ const PopularServices = () => {
         </button>
       </Link>
      </div>
+        </Slide>
     </section>
   );
 };

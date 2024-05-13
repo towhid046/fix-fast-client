@@ -9,6 +9,7 @@ import swal from "sweetalert";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import { Slide } from "react-awesome-reveal";
 
 const ManageServicesPage = () => {
   const { user } = useAuth();
@@ -95,7 +96,8 @@ const ManageServicesPage = () => {
         title="Efficiently Oversee Your Existing Services"
         description={`In here you can view, update, or delete listings as a provider.`}
       />
-      <div className="overflow-x-auto">
+     <Slide direction='up'>
+     <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead className="bg-neutral text-neutral-content ">
@@ -119,6 +121,7 @@ const ManageServicesPage = () => {
           </tbody>
         </table>
       </div>
+     </Slide>
     </section>
   );
 };

@@ -6,6 +6,7 @@ import useAuth from "./../../hooks/useAuth";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
 
 const AddService = () => {
   const navigate = useNavigate()
@@ -74,7 +75,8 @@ const AddService = () => {
         title="Add A New Service"
         description="Enhance your service portfolio by seamlessly adding a new offering as a service provider."
       />
-      <div
+     <Slide direction='right'>
+     <div
         className={
           " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5 "
         }
@@ -104,6 +106,7 @@ const AddService = () => {
           </form>
         </div>
       </div>
+     </Slide>
     </section>
   );
 };

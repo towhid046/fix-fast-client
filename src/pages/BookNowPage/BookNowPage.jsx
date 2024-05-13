@@ -6,11 +6,12 @@ import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import { Slide } from "react-awesome-reveal";
 
 const BookNowPage = () => {
   const service = useLoaderData();
   const { user } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     scrollToTop();
@@ -57,7 +58,7 @@ const BookNowPage = () => {
         serviceBookedInfo
       );
       swal("Success", "Your service is pending now", "success");
-      navigate(`/booked-services`)
+      navigate(`/booked-services`);
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
     }
@@ -89,52 +90,54 @@ const BookNowPage = () => {
         description={`Select your desired ${service_name} package for your location in ${service_area}.
       `}
       />
-      <div
-        className={
-          " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
-        }
-      >
-        <div>
-          <form onSubmit={handlePurchaseService} className="space-y-3 ">
-            <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
-              {addServiceFormInputs}
+      <Slide direction="left">
+        <div
+          className={
+            " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
+          }
+        >
+          <div>
+            <form onSubmit={handlePurchaseService} className="space-y-3 ">
+              <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
+                {addServiceFormInputs}
 
-              <div className="w-full md:col-span-2">
-                <label className="label">
-                  <strong className="label-text">Service_Taking_Date</strong>
-                </label>
-                <input
-                  name="date"
-                  type="date"
-                  className={`input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content`}
-                  required
-                />
+                <div className="w-full md:col-span-2">
+                  <label className="label">
+                    <strong className="label-text">Service_Taking_Date</strong>
+                  </label>
+                  <input
+                    name="date"
+                    type="date"
+                    className={`input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content`}
+                    required
+                  />
+                </div>
+
+                <div className="w-full md:col-span-2">
+                  <label className="label">
+                    <strong className="label-text">
+                      Your Address: Road/ Street, Area
+                    </strong>
+                  </label>
+                  <input
+                    type="text"
+                    name="special_instruction"
+                    placeholder="Enter your location in details"
+                    className={`input w-full focus:outline-none border-2 focus:border-neutral-content bg-base-200 text-base-content`}
+                    required
+                  />
+                </div>
               </div>
 
-              <div className="w-full md:col-span-2">
-                <label className="label">
-                  <strong className="label-text">
-                    Your Address: Road/ Street, Area
-                  </strong>
-                </label>
-                <input
-                  type="text"
-                  name="special_instruction"
-                  placeholder="Enter your location in details"
-                  className={`input w-full focus:outline-none border-2 focus:border-neutral-content bg-base-200 text-base-content`}
-                  required
-                />
+              <div>
+                <button className="btn w-full font-bold btn-error text-base-100">
+                  Purchase
+                </button>
               </div>
-            </div>
-
-            <div>
-              <button className="btn w-full font-bold btn-error text-base-100">
-                Purchase
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-      </div>
+      </Slide>
     </section>
   );
 };

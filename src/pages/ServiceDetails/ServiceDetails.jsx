@@ -6,6 +6,7 @@ import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
 import { IoMdMail } from "react-icons/io";
+import { Slide } from "react-awesome-reveal";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -35,60 +36,66 @@ const ServiceDetails = () => {
       />
       <div className="p-5 rounded-lg border">
         <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6 mb-10">
-          <figure className="flex-1 overflow-hidden rounded-lg ">
-            <img
-              src={image_url}
-              className="rounded-lg w-full"
-              alt={service_name + " Image"}
-            />
-          </figure>
-          <div className=" space-y-3 flex-1">
-            <div>
-              <h2 className="font-bold text-2xl mb-3">{service_name}</h2>
-              <p className="flex items-center gap-2 mb-1">
-                <HiOutlineCurrencyDollar className="text-xl text-error" />
-                <strong>
-                  <em>${price}</em>
-                </strong>
+          <Slide direction="right" className="flex-1">
+            <figure className="overflow-hidden rounded-lg ">
+              <img
+                src={image_url}
+                className="rounded-lg w-full"
+                alt={service_name + " Image"}
+              />
+            </figure>
+          </Slide>
+          <Slide direction="left" className="flex-1">
+            <div className=" space-y-6 flex-1">
+              <div>
+                <h2 className="font-bold text-2xl mb-3">{service_name}</h2>
+                <p className="flex items-center gap-2 mb-1">
+                  <HiOutlineCurrencyDollar className="text-xl text-error" />
+                  <strong>
+                    <em>${price}</em>
+                  </strong>
+                </p>
+                <p className="flex items-center gap-2">
+                  <MdOutlineLocationOn className="text-xl text-error" />
+                  <strong>
+                    <em>{service_area}</em>
+                  </strong>
+                </p>
+              </div>
+              <p>
+                <em>Description: </em>
+                {description.split(" ").slice(0, 70).join(" ")}.
               </p>
-              <p className="flex items-center gap-2">
-                <MdOutlineLocationOn className="text-xl text-error" />
-                <strong>
-                  <em>{service_area}</em>
-                </strong>
-              </p>
+              <div>
+                <Link to={`/booking/${_id}`}>
+                  <button className=" btn btn-error text-base-100 w-full ">
+                    Book Now
+                  </button>
+                </Link>
+              </div>
             </div>
-            <p>
-              <em>Description: </em>
-              {description.split(" ").slice(0, 70).join(" ")}.
+          </Slide>
+        </div>
+        <Slide direction="down">
+          <div className="flex flex-col items-center space-y-3 flex-auto">
+            <h2 className="text-xl italic  font-bold my-5  border-b pb-3 w-full lg:border-0 text-center">
+              Service Provider
+            </h2>
+            <figure>
+              <img className="rounded-full w-28 h-28" src={photo} alt="" />
+            </figure>
+            <h2 className="text-lg font-semibold">Name: {name}</h2>
+            <p>Rating: {rating}</p>
+            <p className="flex items-center gap-2">
+              <IoMdMail className="text-xl text-error" />
+              {email}
             </p>
-            <div>
-              <Link to={`/booking/${_id}`}>
-                <button className=" btn btn-error text-base-100 w-full ">
-                  Book Now
-                </button>
-              </Link>
-            </div>
+            <p className="flex items-center gap-2">
+              <MdOutlineLocationOn className="text-xl text-error" />
+              {service_area}
+            </p>{" "}
           </div>
-        </div>
-        <div className="flex flex-col items-center space-y-3 flex-auto">
-          <h2 className="text-xl italic  font-bold my-5  border-b pb-3 w-full lg:border-0 text-center">
-            Service Provider
-          </h2>
-          <figure>
-            <img className="rounded-full w-28 h-28" src={photo} alt="" />
-          </figure>
-          <h2 className="text-lg font-semibold">Name: {name}</h2>
-          <p>Rating: {rating}</p>
-          <p className="flex items-center gap-2">
-            <IoMdMail className="text-xl text-error" />
-            {email}
-          </p>
-          <p className="flex items-center gap-2">
-            <MdOutlineLocationOn className="text-xl text-error" />
-            {service_area}
-          </p>{" "}
-        </div>
+        </Slide>
       </div>
     </section>
   );

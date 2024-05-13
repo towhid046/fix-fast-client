@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Slide } from "react-awesome-reveal";
 
 const BookedService = ({ service }) => {
   const {
@@ -14,7 +15,8 @@ const BookedService = ({ service }) => {
     provider_email,
   } = service;
   return (
-    <div className="card bg-base-100 image-full">
+    <Slide>
+      <div className="card bg-base-100 image-full">
       <figure>
         <img src={image_url} alt={service_name + " Image"} />
       </figure>
@@ -42,6 +44,7 @@ const BookedService = ({ service }) => {
         </div>
       </div>
     </div>
+    </Slide>
   );
 };
 

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { Slide } from "react-awesome-reveal";
+
 
 const ServiceCard = ({ service }) => {
   const {
@@ -15,7 +17,8 @@ const ServiceCard = ({ service }) => {
   } = service;
 
   return (
-    <div className="border p-5 rounded-lg flex lg:flex-row flex-col xl:gap-8 gap-6 ">
+    <Slide direction="right">
+      <div className="border p-5 rounded-lg flex lg:flex-row flex-col xl:gap-8 gap-6 ">
       <figure className="overflow-hidden rounded-lg">
         <Link className="rounded-lg" to={`/service-details/${_id}`}>
           <img
@@ -70,6 +73,7 @@ const ServiceCard = ({ service }) => {
         </div>
       </div>
     </div>
+    </Slide>
   );
 };
 

@@ -1,5 +1,4 @@
 const faqs = [
-  const faqs = [
     {
       id: 1,
       question: "What makes electronic gadgets unique?",

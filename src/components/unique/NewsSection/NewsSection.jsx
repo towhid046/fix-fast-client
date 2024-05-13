@@ -4,6 +4,7 @@ import NewsCard from "./../NewsCard/NewsCard";
 import SectionHeader from "../../shared/SectionHeader/SectionHeader";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import { Slide } from "react-awesome-reveal";
 
 const NewsSection = () => {
   const [news, setNews] = useState([]);
@@ -36,7 +37,8 @@ const NewsSection = () => {
           <NewsCard key={info._id} info={info} />
         ))}
       </div>
-      <div className="flex justify-center my-7">
+     <Slide direction='up'>
+     <div className="flex justify-center my-7">
         <Link to={"/all-news"}>
           <button className="rounded-full md:px-12 px-5 btn btn-outline btn-error ">
             View All News
@@ -44,6 +46,7 @@ const NewsSection = () => {
           </button>
         </Link>
       </div>
+     </Slide>
     </section>
   );
 };

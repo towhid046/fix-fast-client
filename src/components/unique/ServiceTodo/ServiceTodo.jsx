@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import axios from "axios";
 import swal from "sweetalert";
+import { Slide } from "react-awesome-reveal";
 
 const ServiceTodo = ({ service }) => {
   const {
@@ -37,56 +38,62 @@ const ServiceTodo = ({ service }) => {
     <div>
       <div className="p-5 rounded-lg border">
         <div className="  flex lg:flex-row flex-col xl:gap-8 gap-6">
-          <figure className="flex-1">
-            <img
-              src={image_url}
-              className="rounded-lg w-full"
-              alt={service_name + " Image"}
-            />
-          </figure>
-          <div className=" space-y-1 flex-1">
-            <h2 className="font-bold text-2xl ">{service_name}</h2>
-            <p>
-              <strong>Price: {price}</strong>
-            </p>
-            <p className="pb-4">
-              <strong>Date: {service_taking_date}</strong>
-            </p>
+          <Slide direction="right" className="flex-1">
+            <figure>
+              <img
+                src={image_url}
+                className="rounded-lg w-full"
+                alt={service_name + " Image"}
+              />
+            </figure>
+          </Slide>
+          <Slide className="flex-1" direction="left">
+            <div className=" space-y-1">
+              <h2 className="font-bold text-2xl ">{service_name}</h2>
+              <p>
+                <strong>Price: {price}</strong>
+              </p>
+              <p className="pb-4">
+                <strong>Date: {service_taking_date}</strong>
+              </p>
 
-            <div className="border-t pt-5 space-y-1 pb-2">
-              <h2 className="text-xl font-bold">User Information</h2>
-              <p>Name: {current_user_name}</p>
-              <p>Email: {current_user_email}</p>
-              <p>Location: {special_instruction}</p>
+              <div className="border-t pt-5 space-y-1 pb-2">
+                <h2 className="text-xl font-bold">User Information</h2>
+                <p>Name: {current_user_name}</p>
+                <p>Email: {current_user_email}</p>
+                <p>Location: {special_instruction}</p>
+              </div>
+              <div className="border-t pt-2">
+                <h2 className="text-lg font-bold mb-3">
+                  Update Your Service Status
+                </h2>
+                <select
+                  onChange={handleServiceStatus}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option value={serviceStatus}>{serviceStatus}</option>
+                  <option
+                    className={`${serviceStatus === "Pending" && "hidden"}`}
+                    value={"Pending"}
+                  >
+                    Pending
+                  </option>
+                  <option
+                    className={`${serviceStatus === "Working" && "hidden"}`}
+                    value={"Working"}
+                  >
+                    Working
+                  </option>
+                  <option
+                    className={`${serviceStatus === "Complete" && "hidden"}`}
+                    value={"Complete"}
+                  >
+                    Complete
+                  </option>
+                </select>
+              </div>
             </div>
-            <div className="border-t pt-2">
-              <h2 className="text-lg font-bold mb-3">Update Your Service Status</h2>
-              <select
-                onChange={handleServiceStatus}
-                className="select select-bordered w-full max-w-xs"
-              >
-                <option value={serviceStatus}>{serviceStatus}</option>
-                <option
-                  className={`${serviceStatus === "Pending" && "hidden"}`}
-                  value={"Pending"}
-                >
-                  Pending
-                </option>
-                <option
-                  className={`${serviceStatus === "Working" && "hidden"}`}
-                  value={"Working"}
-                >
-                  Working
-                </option>
-                <option
-                  className={`${serviceStatus === "Complete" && "hidden"}`}
-                  value={"Complete"}
-                >
-                  Complete
-                </option>
-              </select>
-            </div>
-          </div>
+          </Slide>
         </div>
       </div>
     </div>
