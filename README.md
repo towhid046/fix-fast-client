@@ -16,6 +16,7 @@
 + Also login with Google 
 + Private Routes
 + All pages have navbar and footer without not found page
++ Responsive for all devices
 
 ### Packages Used for This Website
 
@@ -28,7 +29,7 @@
 - **[react-helmet-async](https://github.com/staylor/react-helmet-async)**: v2.0.5
 - **[react-icons](https://github.com/react-icons/react-icons)**: v5.2.1
 - **[react-router-dom](https://reactrouter.com/web/guides/quick-start)**: v6.23.0
-- **[react-simple-typewriter](https://github.com/OrchidTechnologies/react-simple-typewriter)**: v5.0.1
+- **[react-tooltip](https://www.npmjs.com/package/react-tooltip)**: 5.26.4
 - **[react-slick](https://github.com/akiran/react-slick)**: v0.30.2
 - **[react-toastify](https://github.com/fkhadra/react-toastify)**: v10.0.5
 - **[slick-carousel](https://github.com/kenwheeler/slick)**: v1.8.1
