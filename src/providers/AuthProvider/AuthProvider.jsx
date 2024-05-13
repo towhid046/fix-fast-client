@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
 
   const logOutUser = () => {
     axios
-      .post(`${import.meta.env.VITE_API_URL}/logout`)
+      .post(`${import.meta.env.VITE_API_URL}/logout`, {withCredentials: true})
       .then((res) => {
         console.log(res.data);
       })
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         const loggedUser = currentUser?.email;
         axios
-          .post(`${import.meta.env.VITE_API_URL}/jwt`, { loggedUser })
+          .post(`${import.meta.env.VITE_API_URL}/jwt`, { loggedUser }, {withCredentials: true})
           .then((res) => {
             console.log(res.data);
           })
