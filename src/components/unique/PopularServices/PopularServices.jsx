@@ -12,7 +12,7 @@ const PopularServices = () => {
   }, []);
 
   const getData = async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`, {withCredentials: true});
     return res.data;
   };
 
@@ -26,6 +26,14 @@ const PopularServices = () => {
     queryFn: getData,
   });
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center py-12 min-h-screen ">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
+
   if (isError) {
     return (
       <div className="flex justify-center py-12 min-h-screen ">
@@ -34,13 +42,6 @@ const PopularServices = () => {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
-  }
 
   return (
     <section className="mb-6">

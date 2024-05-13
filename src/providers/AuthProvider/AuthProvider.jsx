@@ -32,14 +32,14 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOutUser = () => {
-    axios
-      .post(`${import.meta.env.VITE_API_URL}/logout`, {withCredentials: true})
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    // axios
+    //   .post(`${import.meta.env.VITE_API_URL}/logout`)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
 
     setLoading(false);
     return signOut(auth);
@@ -56,17 +56,17 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
 
-      if (currentUser) {
-        const loggedUser = currentUser?.email;
-        axios
-          .post(`${import.meta.env.VITE_API_URL}/jwt`, { loggedUser }, {withCredentials: true})
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      }
+      // if (currentUser) {
+      //   const loggedUser = currentUser?.email;
+      //   axios
+      //     .post(`${import.meta.env.VITE_API_URL}/jwt`, { loggedUser })
+      //     .then((res) => {
+      //       console.log(res.data);
+      //     })
+      //     .catch((err) => {
+      //       console.error(err);
+      //     });
+      // }
     });
     return () => unSubscribe();
   }, []);

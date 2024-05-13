@@ -92,7 +92,7 @@ const routers = createBrowserRouter([
         path: "/news-details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://green-villa-server-eight.vercel.app/news/${params.id}`
+            `${import.meta.env.VITE_API_URL}/news/${params.id}`
           ),
         element: <NewsDetails />,
       },

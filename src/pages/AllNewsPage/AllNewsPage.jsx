@@ -14,7 +14,7 @@ const AllNewsPage = () => {
   useEffect(() => {
     const loadData = async () => {
       const res = await axios.get(
-        "https://green-villa-server-eight.vercel.app/news"
+        `${import.meta.env.VITE_API_URL}/news`
       );
       setNews(res.data);
     };
