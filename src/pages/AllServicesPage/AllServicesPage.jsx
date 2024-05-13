@@ -21,9 +21,9 @@ const AllServicesPage = () => {
   const totalNumberOfPages = Math.ceil(totalServices / perPageService);
   const pageNumbers = [...Array(totalNumberOfPages).keys()];
 
-  // useEffect(() => {
-  //   scrollToTop();
-  // }, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -133,16 +133,20 @@ const AllServicesPage = () => {
         </h2>
       )}
 
-      <div className={`flex justify-center py-8 ${searchText && "hidden"}`}>
-        <ul className="flex gap-2 items-center flex-wrap">
-          <button
-            onClick={handlePrevBtn}
-            disabled={currentPage === 1}
-            className="flex items-center btn-error btn-outline rounded-[33px] px-8 btn mr-4"
-          >
-            <FaArrowLeftLong />
-            Prev
-          </button>
+      <div
+        className={`flex justify-center items-center py-8 ${
+          searchText && "hidden"
+        }`}
+      >
+        <button
+          onClick={handlePrevBtn}
+          disabled={currentPage === 1}
+          className="flex items-center btn-error btn-outline rounded-[33px] px-8 btn mr-4"
+        >
+          <FaArrowLeftLong />
+          Prev
+        </button>
+        <ul className={`grid gap-2 grid-cols-1 md:flex`}>
           {pageNumbers?.map((number, index) => (
             <button
               onClick={() => handleGetCurrentPage(index + 1)}
@@ -154,15 +158,15 @@ const AllServicesPage = () => {
               {number + 1}
             </button>
           ))}
-          <button
-            onClick={handleNextBtn}
-            disabled={currentPage === totalNumberOfPages}
-            className="flex items-center btn-outline btn-error rounded-[33px] px-8 btn ml-4"
-          >
-            Next
-            <FaArrowRightLong />
-          </button>
         </ul>
+        <button
+          onClick={handleNextBtn}
+          disabled={currentPage === totalNumberOfPages}
+          className="flex items-center btn-outline btn-error rounded-[33px] px-8 btn ml-4"
+        >
+          Next
+          <FaArrowRightLong />
+        </button>
       </div>
     </section>
   );
