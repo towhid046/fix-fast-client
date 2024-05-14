@@ -6,9 +6,10 @@ import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet";
+import { Slide } from "react-awesome-reveal";
 
 const UpdateServicePage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const service = useLoaderData();
   const { user } = useAuth();
 
@@ -55,7 +56,7 @@ const UpdateServicePage = () => {
         "Your service has been updated successfully",
         "success"
       );
-      navigate('/manage-services')
+      navigate("/manage-services");
     } catch (err) {
       swal("Something wrong", `${err?.message}`, "error");
     }
@@ -81,41 +82,43 @@ const UpdateServicePage = () => {
     <section className="container mx-auto px-2 pb-24">
       <DynamicHelmet title="Update Service" />
       <SectionHeader
-      name="Update service"
+        name="Update service"
         title={`Update Your ${service_name}`}
         description="Stay up-to-date with your offerings!."
       />
-      <div
-        className={
-          " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
-        }
-      >
-        <div>
-          <form onSubmit={handleUpdateService} className="space-y-3 ">
-            <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
-              {updateServiceFormInputs}
-              <div className="w-full md:col-span-2">
-                <label className="label">
-                  <strong className="label-text">Description</strong>
-                </label>
-                <textarea
-                  placeholder="Enter service description"
-                  name="description"
-                  defaultValue={description}
-                  rows={7}
-                  className="textarea textarea-bordered textarea-md bg-base-200 text-base-content w-full focus:outline-none border-base-200 border-2 focus:border-neutral-content"
-                ></textarea>
+      <Slide direction="down">
+        <div
+          className={
+            " border text-black rounded-lg lg:px-20 md:px-12 px-4 md:py-12 py-5"
+          }
+        >
+          <div>
+            <form onSubmit={handleUpdateService} className="space-y-3 ">
+              <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
+                {updateServiceFormInputs}
+                <div className="w-full md:col-span-2">
+                  <label className="label">
+                    <strong className="label-text">Description</strong>
+                  </label>
+                  <textarea
+                    placeholder="Enter service description"
+                    name="description"
+                    defaultValue={description}
+                    rows={7}
+                    className="textarea textarea-bordered textarea-md bg-base-200 text-base-content w-full focus:outline-none border-base-200 border-2 focus:border-neutral-content"
+                  ></textarea>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <button className="btn w-full font-bold btn-neutral  text-neutral-content">
-                Update Service
-              </button>
-            </div>
-          </form>
+              <div>
+                <button className="btn w-full font-bold btn-neutral  text-neutral-content">
+                  Update Service
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      </Slide>
     </section>
   );
 };

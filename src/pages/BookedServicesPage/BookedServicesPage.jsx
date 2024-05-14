@@ -4,9 +4,11 @@ import { scrollToTop } from "../../utilities/scrollToTop";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import SectionHeader from "./../../components/shared/SectionHeader/SectionHeader";
-import { Link } from "react-router-dom";
 import BookedService from "../../components/unique/BookedService/BookedService";
 import DynamicHelmet from "../../components/shared/DynamicHelmet/DynamicHelmet";
+import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinner";
+import ErrorComponent from "./../../components/shared/ErrorComponent/ErrorComponent";
+import EmptyService from "../../components/shared/EmptyService/EmptyService";
 
 const BookedServicesPage = () => {
   const { user } = useAuth();
@@ -31,32 +33,21 @@ const BookedServicesPage = () => {
     },
   });
 
-  if (isError) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <h2 className="text-2xl font-bold text-gray-300">{error}</h2>
-      </div>
-    );
+  if (isLoading) {
+    return <LoadingSpinner />;
   }
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
+  if (isError) {
+    return <ErrorComponent error={error} />;
   }
 
   if (!services.length) {
     return (
-      <div className="flex gap-5 justify-center items-center min-h-[80vh] flex-col">
-        <h2 className="text-gray-300 font-bold text-center text-3xl">
-          Your don`t have booked any service yet!
-        </h2>
-        <Link to="/all-services">
-          <button className="btn btn-error btn-outline btn-sm">See all services</button>
-        </Link>
-      </div>
+      <EmptyService
+        title={`You don't have booked any service Yet!`}
+        url="all-services"
+        btnText="See all Services"
+      />
     );
   }
 
@@ -64,7 +55,7 @@ const BookedServicesPage = () => {
     <section className="pb-16">
       <DynamicHelmet title="Booked Services" />
       <SectionHeader
-      name="Booked Services"
+        name="Booked Services"
         title="Truck Your Booked Services"
         description={`"Track Your Engagements: Explore Your Booked Services Overview"`}
       />

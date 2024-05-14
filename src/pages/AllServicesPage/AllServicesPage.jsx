@@ -6,6 +6,7 @@ import DynamicHelmet from "./../../components/shared/DynamicHelmet/DynamicHelmet
 import ServiceCard from "../../components/unique/ServiceCard/ServiceCard";
 import { useLoaderData } from "react-router-dom";
 import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
+import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinner";
 
 const AllServicesPage = () => {
   const [searchText, setSearchText] = useState("");
@@ -57,6 +58,7 @@ const AllServicesPage = () => {
   const handleGetCurrentPage = (currPage) => {
     setCurrentPage(currPage);
     setSearchText("");
+    scrollToTop();
   };
 
   const handlePrevBtn = () => {
@@ -82,11 +84,7 @@ const AllServicesPage = () => {
   }
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
+    return <LoadingSpinner />
   }
 
   return (
@@ -125,8 +123,8 @@ const AllServicesPage = () => {
       </div>
 
       <div className="flex flex-col gap-6">
-        {services?.map((service) => (
-          <ServiceCard key={service._id} service={service} />
+        {services?.map((service, index) => (
+          <ServiceCard key={service._id} service={service} index={index} />
         ))}
       </div>
       {services.length <= 0 && (

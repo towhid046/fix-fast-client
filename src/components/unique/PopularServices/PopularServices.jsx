@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Slide } from "react-awesome-reveal";
-
+import LoadingSpinner from "./../../shared/LoadingSpinner/LoadingSpinner";
+import ErrorComponent from "./../../shared/ErrorComponent/ErrorComponent";
 
 const PopularServices = () => {
   useEffect(() => {
@@ -14,7 +15,9 @@ const PopularServices = () => {
   }, []);
 
   const getData = async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`, {withCredentials: true});
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/services`, {
+      withCredentials: true,
+    });
     return res.data;
   };
 
@@ -29,44 +32,35 @@ const PopularServices = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <span className="loading loading-spinner loading-lg"></span>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (isError) {
-    return (
-      <div className="flex justify-center py-12 min-h-screen ">
-        <h2 className="text-2xl font-bold text-gray-300">{error}</h2>
-      </div>
-    );
+    return <ErrorComponent error={error} />;
   }
-
 
   return (
     <section className="mb-6">
       <SectionHeader
-      name="Popular services"
+        name="Popular services"
         title="Discover Our Popular Services"
         description="Unlock a world of premier electronics solutions with our popular services. Explore top-rated offerings trusted by providers and consumers alike!"
       />
       <div className="flex flex-col gap-6">
-        {services?.slice(0, 6).map((service) => (
-          <ServiceCard key={service._id} service={service} />
+        {services?.slice(0, 5).map((service, index) => (
+          <ServiceCard key={service._id} service={service} index={index} />
         ))}
       </div>
-        <Slide direction="up">
+      <Slide direction="up">
         <div className="flex justify-center my-7">
-     <Link to={"/all-services"} >
-        <button className="rounded-full md:px-12 px-5 btn btn-outline btn-error ">
-          View All Services
-          <BsArrowRight className="text-xl" />
-        </button>
-      </Link>
-     </div>
-        </Slide>
+          <Link to={"/all-services"}>
+            <button className="rounded-full md:px-12 px-5 btn btn-outline btn-error ">
+              View All Services
+              <BsArrowRight className="text-xl" />
+            </button>
+          </Link>
+        </div>
+      </Slide>
     </section>
   );
 };
