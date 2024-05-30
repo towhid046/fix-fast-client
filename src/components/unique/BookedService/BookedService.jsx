@@ -45,7 +45,7 @@ const BookedService = ({ service, handleCancelBookedService }) => {
                   onClick={() => handleCancelBookedService(_id)}
                   className="btn btn-error text-base-100"
                 >
-                  Cancel
+                  Cancel Service
                 </button>
               ) : (
                 ""
