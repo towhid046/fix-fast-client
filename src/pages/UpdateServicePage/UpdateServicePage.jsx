@@ -111,7 +111,7 @@ const UpdateServicePage = () => {
               </div>
 
               <div>
-                <button className="btn w-full font-bold btn-neutral  text-neutral-content">
+                <button className="btn w-full font-bold btn-error text-base-100">
                   Update Service
                 </button>
               </div>

@@ -63,93 +63,93 @@ const Login = () => {
       />
 
       <Slide direction="down">
-      <div className="hero  pb-8 mb-12">
-        <div className="w-full">
-          <div
-            className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-5 px-4 "
+        <div className="hero  pb-8 mb-12">
+          <div className="w-full">
+            <div
+              className={`max-w-xl border rounded-lg bg-base-100 mx-auto md:p-12 py-5 px-4 "
               }`}
-          >
-            <div className="text-center">
-              <div className="flex justify-center gap-5 mb-3">
-                <button
-                  onClick={handelLogInWithGoogle}
-                  className="btn flex items-center gap-2  w-full "
-                >
-                  <img className="w-5" src={googleLogo} alt="Google" />
-                  <span>Sign In With Google</span>
-                </button>
-              </div>
-              <div>
-                <em className="text-2xl">Or</em>
-                <p>Log In with Email</p>
-              </div>
-            </div>
-
-            <form onSubmit={handelLoginForm} className="mt-5 text-black">
-              <div>
-                <label className="label">
-                  <strong className="label-text">Email address</strong>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
-                  required
-                />
-              </div>
-
-              <div className="relative">
-                <label className="label">
-                  <strong className="label-text">Password</strong>
-                </label>
-                <input
-                  type={isShowPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  className="input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content"
-                  required
-                />
-
-                {/* password show eye off-on */}
-                <div className="absolute right-3 bottom-4 ">
-                  {isShowPassword ? (
-                    <span
-                      className="cursor-pointer"
-                      onClick={handelShowPassword}
-                    >
-                      <LuEye />
-                    </span>
-                  ) : (
-                    <span
-                      className="cursor-pointer"
-                      onClick={handelShowPassword}
-                    >
-                      <LuEyeOff />
-                    </span>
-                  )}
+            >
+              <div className="text-center">
+                <div className="flex justify-center gap-5 mb-3">
+                  <button
+                    onClick={handelLogInWithGoogle}
+                    className="btn flex items-center gap-2  w-full "
+                  >
+                    <img className="w-5" src={googleLogo} alt="Google" />
+                    <span>Continue With Google</span>
+                  </button>
+                </div>
+                <div>
+                  <em className="text-2xl">Or</em>
+                  <p>Log In with Email</p>
                 </div>
               </div>
 
-              <div className="form-control my-5">
-                <button className="btn w-full   font-bold btn-error text-base-100">
-                  Log in
-                </button>
-              </div>
-            </form>
+              <form onSubmit={handelLoginForm} className="mt-5 text-black">
+                <div>
+                  <label className="label">
+                    <strong className="label-text">Email address</strong>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    className="bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content  input"
+                    required
+                  />
+                </div>
 
-            <p className="text-center mt-5">
-              Don`t have an account?{" "}
-              <Link
-                to={"/register"}
-                className=" cursor-pointer italic link link-neutral-content font-semibold"
-              >
-                Register
-              </Link>
-            </p>
+                <div className="relative">
+                  <label className="label">
+                    <strong className="label-text">Password</strong>
+                  </label>
+                  <input
+                    type={isShowPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className="input bg-base-200 text-base-content w-full focus:outline-none border-2 focus:border-neutral-content"
+                    required
+                  />
+
+                  {/* password show eye off-on */}
+                  <div className="absolute right-3 bottom-4 ">
+                    {isShowPassword ? (
+                      <span
+                        className="cursor-pointer"
+                        onClick={handelShowPassword}
+                      >
+                        <LuEye />
+                      </span>
+                    ) : (
+                      <span
+                        className="cursor-pointer"
+                        onClick={handelShowPassword}
+                      >
+                        <LuEyeOff />
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-control my-5">
+                  <button className="btn w-full   font-bold btn-error text-base-100">
+                    Log in
+                  </button>
+                </div>
+              </form>
+
+              <p className="text-center mt-5">
+                Don`t have an account?{" "}
+                <Link
+                  to={"/register"}
+                  className=" cursor-pointer italic link link-neutral-content font-semibold"
+                >
+                  Register
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       </Slide>
     </div>
   );

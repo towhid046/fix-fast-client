@@ -10,6 +10,9 @@ import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinne
 import ErrorComponent from "./../../components/shared/ErrorComponent/ErrorComponent";
 import EmptyService from "../../components/shared/EmptyService/EmptyService";
 
+import swal from "sweetalert";
+import { toast } from "react-toastify";
+
 const BookedServicesPage = () => {
   const { user } = useAuth();
 
@@ -22,6 +25,7 @@ const BookedServicesPage = () => {
     isLoading,
     error,
     isError,
+    refetch,
   } = useQuery({
     queryKey: ["booked-services"],
     queryFn: async () => {
@@ -32,6 +36,31 @@ const BookedServicesPage = () => {
       return res.data;
     },
   });
+
+  const handleCancelBookedService = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Want to cancel this service!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        try {
+          await axios.delete(
+            `${import.meta.env.VITE_API_URL}/booked-service/${id}`
+          );
+
+          toast.success("Service Canceled", {
+            autoClose: 2000,
+          });
+          refetch();
+        } catch (error) {
+          swal("Error", "Something went wrong, Please try again", "error");
+        }
+      }
+    });
+  };
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -61,7 +90,11 @@ const BookedServicesPage = () => {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {services.map((service) => (
-          <BookedService key={service._id} service={service} />
+          <BookedService
+            key={service._id}
+            service={service}
+            handleCancelBookedService={handleCancelBookedService}
+          />
         ))}
       </div>
     </section>

@@ -189,7 +189,7 @@ const RegisterPage = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn w-full   font-bold btn-neutral text-neutral-content">
+                <button className="btn w-full   btn-error text-base-100">
                   Register
                 </button>
               </div>
